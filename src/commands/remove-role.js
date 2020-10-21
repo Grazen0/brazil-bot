@@ -1,11 +1,16 @@
-const { MessageEmbed } = require('discord.js');
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'RoleRemove',
-	description: 'Removes a person from the bot role',
-	usage: ['(command)'],
-	execute: async ({ message, args }) => {
-		message.mentions;
+	name: 'roleremove',
+	description: 'Removes a person from the Brazil role',
+	usage: ['[@Member]'],
+	execute: async (message, args) => {
+		const member = message.mentions.members.first();
+		const brazilRole = config;
+
+		if (member.roles.has(brazilRole)) {
+			await message.member.removeRole(brazilRole);
+			message.channel.send(`Removed role from ${member}`);
+		}
 	},
 };
