@@ -13,6 +13,10 @@ module.exports = {
 		const reward = parseInt(args[0]);
 		const member = message.mentions.users.first();
 
+    if(isNaN(amount)) {
+      channel.send("Please add a valid number");
+    }
+
 		if (!member) {
 			channel.send('pls mention a user');
 			return;
