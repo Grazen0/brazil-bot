@@ -32,13 +32,18 @@ module.exports = {
 			permissions = [],
 			usage,
 		} = command;
+
 		const embed = new MessageEmbed()
 			.setTitle(`Command: \`${name}\``)
 			.setColor(config.embedColor)
 			.setDescription(description)
 			.addField(
 				'Usage:',
-				'`' + config.prefix + name + (usage ? ` ${usage.join(' ')}` : '') + '`'
+				'`' +
+					config.prefix +
+					name +
+					(usage.length ? ` ${usage.join(' ')}` : '') +
+					'`'
 			);
 
 		if (aliases.length) {

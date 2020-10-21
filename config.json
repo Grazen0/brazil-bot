@@ -8,6 +8,7 @@
 	"brazilRole": "734114739587645481",
 	"brazilChannel": "759207422106927104",
 	"dailyReward": 100,
+	"weeklyReward": 850,
 	"prayReward": {
 		"min": 1,
 		"max": 50
