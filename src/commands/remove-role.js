@@ -13,7 +13,7 @@ module.exports = {
 		}
 
 		if (member.roles.has(brazilRole)) {
-			await message.member.removeRole(brazilRole);
+			await member.removeRole(brazilRole);
 			message.channel.send(`Removed role from ${member}`);
 		}
 	},
