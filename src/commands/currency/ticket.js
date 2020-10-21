@@ -10,7 +10,32 @@ const getPrice = () =>
 module.exports = {
 	name: 'ticket',
 	description: `Buy a ticket to brazil for ${asCurrency(getPrice())}!`,
-	execute: async ({ message, args }) => {
+	execute: async ({ channel, author, client, member }) => {
+		const { brazilRole } = config;
+		if (member.roles.cache.get(brazilRole)) {
+			channel.send('You alreay have the Brazil role!');
+			return;
+		}
+
 		const price = getPrice();
+
+		const bal = await author.getBalance();
+		if (price > bal) {
+			channel.send("You don't have enough money lol");
+			return;
+		}
+
+		await author.add(-price);
+		await client.models.UserTickets.upsert({
+			user_id: author.id,
+			until: Date.now() + 1000 * 60 * 60 * 24,
+		});
+
+		await member.roles.add(config.brazilRole);
+		author.send(
+			`You bough a ticket to Brazil for one day (${asCurrency(
+				price
+			)}). Enjoy your trip!`
+		);
 	},
 };
