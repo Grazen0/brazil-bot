@@ -15,6 +15,7 @@ module.exports = {
 					.setColor(config.embedColor)
 					.setDescription(
 						`\`\`\`${client.commands
+							.filter(({ description }) => description !== '')
 							.map(({ name, description }) => `${name} - ${description}`)
 							.join('\n')}\`\`\``
 					)

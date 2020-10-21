@@ -3,7 +3,7 @@ const { asCurrency } = require('../../util/utils');
 
 module.exports = {
 	name: 'bestow',
-	description: '...',
+	description: '',
 	execute: async ({ author, channel, mentions, args, message }) => {
 		if (!config.owners.includes(author.id)) {
 			channel.send("You don't have permission for this!");

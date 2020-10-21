@@ -3,7 +3,7 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'query',
-	description: 'Runs a query on the database.',
+	description: '',
 	execute: async ({ channel, args, author, client }) => {
 		if (!config.owners.includes(author.id)) {
 			channel.send("You don't have permission to use this command!");
