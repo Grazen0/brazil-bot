@@ -15,13 +15,13 @@ client.commands = listAll('./src/commands')
 
 // Register event listeners
 for (const file of listAll('./src/events')) {
-	console.log(file);
 	const moduleName = file.split('\\').slice(-1)[0].replace(/\.js$/i, '');
 	const eventName = (moduleName.match(/-[a-z]/g) || []).reduce(
 		(acc, match) => acc.replace(match, match.charAt(1).toUpperCase()),
 		moduleName
 	);
 
+	if (eventName === 'ready') require(path.join('..', file))(client);
 	client.on(eventName, (...args) =>
 		require(path.join('..', file))(client, ...args)
 	);
