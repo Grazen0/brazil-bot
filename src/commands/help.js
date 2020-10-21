@@ -4,6 +4,7 @@ const config = require('../../config.json');
 module.exports = {
 	name: 'help',
 	description: "Shows this bot's command list.",
+	aliases: ['commands'],
 	usage: ['(command)'],
 	execute: async ({ channel, client, args }) => {
 		const command = client.findCommand(args[0] || '');
