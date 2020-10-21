@@ -1,6 +1,15 @@
 {
 	"prefix": "b! ",
+	"activity": {
+		"type": "LISTENING",
+		"name": "b! help"
+	},
 	"embedColor": "f7f71b",
 	"brazilRole": "734114739587645481",
-	"brazilChannel": "759207422106927104"
+	"brazilChannel": "759207422106927104",
+	"dailyReward": 100,
+	"prayReward": {
+		"min": 1,
+		"max": 50
+	}
 }

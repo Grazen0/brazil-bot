@@ -5,7 +5,7 @@ const { User, Client } = require('discord.js');
 User.prototype.lastCommand = {};
 
 Client.prototype.commands = [];
-Client.prototype.findCommand = function (search) {
+Client.prototype.findCommand = function (search = '') {
 	if (!search) return;
 	return this.commands.find(
 		({ name, aliases = [] }) =>
@@ -23,6 +23,10 @@ const listAll = folder =>
 		];
 	}, []);
 
+const asCurrency = amount =>
+	amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
 module.exports = {
 	listAll,
+	asCurrency,
 };

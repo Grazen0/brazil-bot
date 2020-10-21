@@ -16,9 +16,9 @@ module.exports = {
 						client.user.displayAvatarURL({ format: 'png', size: 1024 })
 					)
 					.setDescription(
-						`\`\`\`${client.commands.map(
-							({ name, description }) => `${name} - ${description}`
-						)}\`\`\``
+						`\`\`\`${client.commands
+							.map(({ name, description }) => `${name} - ${description}`)
+							.join('\n')}\`\`\``
 					)
 					.setFooter(`(Use "${config.prefix}" before each command!)`)
 			);

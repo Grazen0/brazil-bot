@@ -1,8 +1,10 @@
 const { Client } = require('discord.js');
 const chalk = require('chalk');
 const path = require('path');
-const { listAll } = require('./utils');
+const { listAll } = require('./util/utils');
 const { Sequelize } = require('sequelize');
+const clientExtension = require('./util/extensions/Client');
+const userExtension = require('./util/extensions/User');
 
 require('dotenv').config();
 
@@ -30,7 +32,7 @@ for (const file of listAll('./src/events')) {
 }
 
 (async () => {
-	client.sequelize = new Sequelize({
+	const sequelize = new Sequelize({
 		host: 'sql10.freemysqlhosting.net',
 		database: 'sql10372189',
 		username: 'sql10372189',
@@ -41,15 +43,29 @@ for (const file of listAll('./src/events')) {
 	});
 
 	try {
+		// Sequelize startup
 		console.log(chalk.cyan('Connecting to database...'));
-		await client.sequelize.authenticate();
-		await client.sequelize.sync();
+		client.models = {
+			UserCurrency: require('./models/UserCurrency')(sequelize),
+		};
+
+		// Connect to database
+		await sequelize.authenticate();
+		await sequelize.sync({
+			force: process.argv.find(arg => arg.toLowerCase() === '--force'),
+		});
+		client.sequelize = sequelize;
+
+		// Extensions
+		clientExtension();
+		userExtension(client.models.UserCurrency);
+
+		// Bot login
+		const { TOKEN } = process.env;
+		console.log(chalk.yellow(`Logging in...`));
+		client.login(TOKEN);
 	} catch (err) {
 		console.error(err);
+		process.exit(1);
 	}
-
-	client.on('ready', () => console.log('Ready!'));
-	const { TOKEN } = process.env;
-	console.log(chalk.yellow(`Logging in with token ${TOKEN}...`));
-	client.login(TOKEN);
 })();

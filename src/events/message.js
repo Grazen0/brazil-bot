@@ -5,7 +5,7 @@ const config = require('../../config.json');
  * @param {Client} client
  * @param {Message} message
  */
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
 	const { content, author, member, channel, guild } = message;
 
 	const { prefix } = config;

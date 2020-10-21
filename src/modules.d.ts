@@ -24,11 +24,17 @@ declare module 'discord.js' {
     commands: Command[];
     findCommand(search: string): Command | undefined;
     sequelize: import('sequelize').Sequelize;
+    models: {
+      UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
+    }
   }
 
   interface User {
     lastCommand: {
       [key: string]: number;
     }
+
+    getBalance(): Promise<number>;
+    add(amount: number): Promise<number>;
   }
 }

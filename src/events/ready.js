@@ -1,5 +1,13 @@
 const chalk = require('chalk');
+const { Client } = require('discord.js');
+const config = require('../../config.json');
 
+/**
+ * @param {Client} client
+ */
 module.exports = client => {
-	console.log(chalk.blue(`Logged in as ${client.user.tag}!`));
+	const { user } = client;
+	user.setActivity(config.activity);
+
+	console.log(chalk.blue(`Logged in as ${user.tag}!`));
 };
