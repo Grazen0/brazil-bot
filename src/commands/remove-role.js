@@ -4,17 +4,18 @@ module.exports = {
 	name: 'roleremove',
 	description: 'Removes a person from the Brazil role',
 	usage: ['[@Member]'],
-	execute: async (mentions, message, args) => {
+	execute: async (message, args) => {
 		const brazilRole = config;
 
-		if (!mentions.users.size) {
+		if (!message.mentions.users.size) {
 			message.channel.send("Please mention a user");
 		}
-
-		else if (member.roles.has(brazilRole)) {
-			const member = mentions.members.first();
-			await member.removeRole(brazilRole);
+		else {
+			const mentionMember = mentions.members.first();
+			if (mentionMember.roles.has(brazilRole)) {
+			await mentionMember.removeRole(brazilRole);
 			message.channel.send(`Removed role from ${member}`);
 		}
+	}
 	},
 };
