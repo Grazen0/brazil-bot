@@ -22,6 +22,7 @@ for (const file of listAll('./src/events')) {
 	);
 
 	console.log(path.join('..', file));
+	console.log(eventName);
 	client.on(eventName, (...args) =>
 		require(path.join('..', file))(client, ...args)
 	);
