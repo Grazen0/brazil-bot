@@ -15,6 +15,7 @@ client.commands = listAll('./src/commands')
 
 // Register event listeners
 for (const file of listAll('./src/events')) {
+	console.log(file);
 	const moduleName = file.split('\\').slice(-1)[0].replace(/\.js$/i, '');
 	const eventName = (moduleName.match(/-[a-z]/g) || []).reduce(
 		(acc, match) => acc.replace(match, match.charAt(1).toUpperCase()),
@@ -37,14 +38,15 @@ for (const file of listAll('./src/events')) {
 		logging: false,
 	});
 
-	// try {
-	// 	console.log(chalk.cyan('Connecting to database...'));
-	// 	await client.sequelize.authenticate();
-	// 	await client.sequelize.sync();
-	// } catch (err) {
-	// 	console.error(err);
-	// }
+	try {
+		console.log(chalk.cyan('Connecting to database...'));
+		await client.sequelize.authenticate();
+		await client.sequelize.sync();
+	} catch (err) {
+		console.error(err);
+	}
 
+	client.on('ready', () => console.log('Ready!'));
 	const { TOKEN } = process.env;
 	console.log(chalk.yellow(`Logging in with token ${TOKEN}...`));
 	client.login(TOKEN);
