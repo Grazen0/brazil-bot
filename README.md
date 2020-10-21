@@ -1,1 +1,1 @@
-# pls no don't send me to brazil
+# pls don't send me to brazil

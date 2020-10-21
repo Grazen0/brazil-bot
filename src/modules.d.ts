@@ -26,6 +26,7 @@ declare module 'discord.js' {
     sequelize: import('sequelize').Sequelize;
     models: {
       UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
+      UserTickets: ReturnType<typeof import('./models/UserTickets')>;
     }
   }
 

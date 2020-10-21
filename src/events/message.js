@@ -13,7 +13,7 @@ module.exports = async (client, message) => {
 
 	const [search, ...args] = content.slice(prefix.length).split(/\s+/);
 
-	const command = client.findCommand(search);
+	const command = client.findCommand(search || '');
 	if (!command) return;
 
 	const { permissions = [], name, cooldown = 0 } = command;
@@ -25,6 +25,8 @@ module.exports = async (client, message) => {
 		);
 		return;
 	}
+
+	if (!author.lastCommand) author.lastCommand = {};
 
 	const now = Date.now();
 	const diff = now - (author.lastCommand[name] || 0);
