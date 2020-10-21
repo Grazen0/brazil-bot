@@ -1,0 +1,28 @@
+{
+	"name": "brazil-bot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/index.js",
+	"scripts": {
+		"start": "node . --unhandled-rejections=strict",
+		"dev": "npx nodemon . --unhandled-rejections=strict"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ElCholoGamer/BrazilBot.git"
+	},
+	"contributors": [
+		"ElCholoGamer",
+		"ShrimpyStuff"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ElCholoGamer/BrazilBot/issues"
+	},
+	"homepage": "https://github.com/ElCholoGamer/BrazilBot#readme",
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"discord.js": "^12.4.0",
+		"dotenv": "^8.2.0"
+	}
+}
