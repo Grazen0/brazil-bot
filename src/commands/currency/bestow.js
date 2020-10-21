@@ -4,6 +4,7 @@ const { asCurrency } = require('../../util/utils');
 module.exports = {
 	name: 'bestow',
 	description: '',
+	aliases: ['give'],
 	execute: async ({ author, channel, mentions, args, message }) => {
 		if (!config.owners.includes(author.id)) {
 			channel.send("You don't have permission for this!");
@@ -13,10 +14,10 @@ module.exports = {
 		const reward = parseInt(args[0]);
 		const member = message.mentions.users.first();
 
-    if(isNaN(reward)) {
-      channel.send("Please add a valid number");
-      return;
-    }
+		if (isNaN(reward)) {
+			channel.send('Please add a valid number');
+			return;
+		}
 
 		if (!member) {
 			channel.send('pls mention a user');

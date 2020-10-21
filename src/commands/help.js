@@ -4,14 +4,13 @@ const config = require('../../config.json');
 module.exports = {
 	name: 'help',
 	description: "Shows this bot's command list.",
-	aliases: ['commands'],
 	usage: ['(command)'],
 	execute: async ({ channel, client, args }) => {
 		const command = client.findCommand(args[0] || '');
 		if (!command) {
 			channel.send(
 				new MessageEmbed()
-					.setTitle("BrazilBot's commands")
+					.setTitle("Brazil Bot's commands")
 					.setColor(config.embedColor)
 					.setDescription(
 						`\`\`\`${client.commands
