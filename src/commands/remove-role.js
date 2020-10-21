@@ -2,11 +2,11 @@ const { MessageEmbed } = require('discord.js');
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'help',
-	description: "Shows this bot's command list.",
+	name: 'RoleRemove',
+	description: "Removes a person from the bot role",
 	usage: ['(command)'],
-	execute: async ({ message, channel, client, args }) => {
-    
+	execute(message, args) {
+    message.mentions
 
 	},
 };
