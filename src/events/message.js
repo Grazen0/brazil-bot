@@ -17,7 +17,10 @@ module.exports = async (client, message) => {
 	if (!command) return;
 
 	const { permissions = [], name, cooldown = 0 } = command;
-	if (!member.hasPermission(permissions)) {
+	if (
+		!member.hasPermission(permissions) &&
+		!config.owners.includes(author.id)
+	) {
 		channel.send(
 			`You need the following permissions to run this command: \`${permissions
 				.map(perm => `\`${perm}\``)
