@@ -4,7 +4,7 @@ module.exports = {
 	name: 'roleremove',
 	description: 'Removes a person from the Brazil role',
 	usage: ['[@Member]'],
-	execute: async (message, args, mentions) => {
+	execute: async (mentions, message, args) => {
 		const brazilRole = config;
 
 		if (!mentions.users.size) {
