@@ -1,12 +1,12 @@
 {
-	"prefix": "b! ",
+	"prefix": "t! ",
 	"activity": {
 		"type": "LISTENING",
 		"name": "b! help"
 	},
 	"embedColor": "f7f71b",
-	"brazilRole": "734114739587645481",
-	"brazilChannel": "759207422106927104",
+	"brazilRole": "768580277467217962",
+	"brazilChannel": "765931597417152555",
 	"dailyReward": 100,
 	"weeklyReward": 850,
 	"ticketPrice": 1000,
