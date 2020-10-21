@@ -15,6 +15,7 @@ module.exports = {
 
     if(isNaN(reward)) {
       channel.send("Please add a valid number");
+      return;
     }
 
 		if (!member) {
