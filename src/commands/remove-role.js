@@ -9,8 +9,7 @@ module.exports = {
 
 		if (!message.mentions.users.size) {
 			message.channel.send("Please mention a user");
-		}
-		else {
+		} else {
 			const mentionMember = mentions.members.first();
 			if (mentionMember.roles.has(brazilRole)) {
 			await mentionMember.removeRole(brazilRole);
