@@ -9,19 +9,21 @@ require('dotenv').config();
 const client = new Client();
 
 // Register all available commands
-client.commands = listAll(path.join(__dirname, 'commands'))
+client.commands = listAll('./src/commands')
 	.filter(path => /\.js$/.test(path))
-	.map(path => require(path));
+	.map(file => require(path.join('..', file)));
 
 // Register event listeners
-for (const file of listAll(path.join(__dirname, 'events'))) {
+for (const file of listAll('./src/events')) {
 	const moduleName = file.split('\\').slice(-1)[0].replace(/\.js$/i, '');
 	const eventName = (moduleName.match(/-[a-z]/g) || []).reduce(
 		(acc, match) => acc.replace(match, match.charAt(1).toUpperCase()),
 		moduleName
 	);
 
-	client.on(eventName, (...args) => require(file)(client, ...args));
+	client.on(eventName, (...args) =>
+		require(path.join('..', file))(client, ...args)
+	);
 }
 
 (async () => {
@@ -43,7 +45,6 @@ for (const file of listAll(path.join(__dirname, 'events'))) {
 	// 	console.error(err);
 	// }
 
-	client.on('ready', () => console.log('Ready!'));
 	const { TOKEN } = process.env;
 	console.log(chalk.yellow(`Logging in with token ${TOKEN}...`));
 	client.login(TOKEN);

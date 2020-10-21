@@ -12,7 +12,9 @@ module.exports = {
 				new MessageEmbed()
 					.setTitle("BrazilBot's commands")
 					.setColor(config.embedColor)
-					.setImage(client.user.displayAvatarURL({ format: 'png', size: 1024 }))
+					.setThumbnail(
+						client.user.displayAvatarURL({ format: 'png', size: 1024 })
+					)
 					.setDescription(
 						`\`\`\`${client.commands.map(
 							({ name, description }) => `${name} - ${description}`
