@@ -3,10 +3,9 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'RoleRemove',
-	description: "Removes a person from the bot role",
+	description: 'Removes a person from the bot role',
 	usage: ['(command)'],
-	execute(message, args) {
-    message.mentions
-
+	execute: async ({ message, args }) => {
+		message.mentions;
 	},
 };

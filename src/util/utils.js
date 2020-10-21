@@ -1,18 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { User, Client } = require('discord.js');
-
-User.prototype.lastCommand = {};
-
-Client.prototype.commands = [];
-Client.prototype.findCommand = function (search = '') {
-	if (!search) return;
-	return this.commands.find(
-		({ name, aliases = [] }) =>
-			name.toLowerCase() === search.toLowerCase() ||
-			aliases.some(alias => alias.toLowerCase() === search.toLowerCase())
-	);
-};
 
 const listAll = folder =>
 	fs.readdirSync(folder).reduce((acc, file) => {

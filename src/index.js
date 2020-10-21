@@ -47,6 +47,7 @@ for (const file of listAll('./src/events')) {
 		console.log(chalk.cyan('Connecting to database...'));
 		client.models = {
 			UserCurrency: require('./models/UserCurrency')(sequelize),
+			UserTickets: require('./models/UserTickets')(sequelize),
 		};
 
 		// Connect to database

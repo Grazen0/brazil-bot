@@ -6,7 +6,7 @@ module.exports = {
 	description: "Shows this bot's command list.",
 	usage: ['(command)'],
 	execute: async ({ channel, client, args }) => {
-		const command = client.findCommand(args[0]);
+		const command = client.findCommand(args[0] || '');
 		if (!command) {
 			channel.send(
 				new MessageEmbed()
@@ -30,7 +30,7 @@ module.exports = {
 			description,
 			aliases = [],
 			permissions = [],
-			usage,
+			usage = [],
 		} = command;
 
 		const embed = new MessageEmbed()
