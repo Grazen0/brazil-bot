@@ -43,6 +43,7 @@ for (const file of listAll(path.join(__dirname, 'events'))) {
 	// 	console.error(err);
 	// }
 
+	client.on('ready', () => console.log('Ready!'));
 	const { TOKEN } = process.env;
 	console.log(chalk.yellow(`Logging in with token ${TOKEN}...`));
 	client.login(TOKEN);
