@@ -29,7 +29,7 @@ module.exports = {
 				where: { user_id: member.id },
 			});
 
-			channel.send(`Removed Brazil role from \`${tag}\`!`);
+			channel.send(`Added Brazil role to \`${tag}\`!`);
 		} catch (err) {
 			channel.send(
 				'An error ocurred while removing the role! This is most likely an issue with permissions.'
