@@ -5,13 +5,13 @@ module.exports = {
 	name: 'RoleRemove',
 	description: "Removes a person from the bot role",
 	usage: ['(command)'],
-	execute(message, args) {
+	execute: ({message, args}) => {
 		const member = message.mentions.members.first();
     const brazilRole = config;
 
 		if(member.roles.has(brazilRole)) {
 
-       await(message.member.removeRole(brazilRole));
+       await(member.removeRole(brazilRole));
  try {
          message.channel.send(`Removed role from ${member}`);
        } catch(e){
