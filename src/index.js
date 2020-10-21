@@ -21,7 +21,7 @@ for (const file of listAll('./src/events')) {
 		moduleName
 	);
 
-	if (eventName === 'ready') require(path.join(file))(client);
+	console.log(path.join('..', file));
 	client.on(eventName, (...args) =>
 		require(path.join('..', file))(client, ...args)
 	);
