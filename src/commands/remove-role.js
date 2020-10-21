@@ -8,6 +8,10 @@ module.exports = {
 		const member = message.mentions.members.first();
 		const brazilRole = config;
 
+		if (!message.mentions.users.size) {
+			message.channel.send("Please mention a user");
+		}
+
 		if (member.roles.has(brazilRole)) {
 			await message.member.removeRole(brazilRole);
 			message.channel.send(`Removed role from ${member}`);
