@@ -7,13 +7,13 @@ module.exports = {
 	usage: ['(command)'],
 	execute(message, args) {
 		const member = message.mentions.members.first();
-    //const role = role thing;
+    const brazilRole = config;
 
 
-   if(member.roles.has(role))
+   if(member.roles.has(brazilRole))
       {
 
-      await(message.member.removeRole(role));
+      await(message.member.removeRole(brazilRole));
 
       try{
         console.log(`removed role from ${member}`);
