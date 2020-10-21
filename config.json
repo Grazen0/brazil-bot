@@ -9,7 +9,7 @@
 	"brazilChannel": "766399985327538187",
 	"dailyReward": 100,
 	"weeklyReward": 850,
-	"ticketPrice": 1000,
+	"ticketPrice": 3000,
 	"prayReward": {
 		"min": 1,
 		"max": 50
