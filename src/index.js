@@ -32,15 +32,16 @@ for (const file of listAll(path.join(__dirname, 'events'))) {
 		password: process.env.DB_PASSWORD,
 		port: 3306,
 		dialect: 'mysql',
+		logging: false,
 	});
 
-	try {
-		console.log(chalk.cyan('Connecting to database...'));
-		await client.sequelize.authenticate();
-		await client.sequelize.sync();
-	} catch (err) {
-		console.error(err);
-	}
+	// try {
+	// 	console.log(chalk.cyan('Connecting to database...'));
+	// 	await client.sequelize.authenticate();
+	// 	await client.sequelize.sync();
+	// } catch (err) {
+	// 	console.error(err);
+	// }
 
 	const { TOKEN } = process.env;
 	console.log(chalk.yellow(`Logging in with token ${TOKEN}...`));
