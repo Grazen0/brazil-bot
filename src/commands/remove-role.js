@@ -9,18 +9,15 @@ module.exports = {
 		const member = message.mentions.members.first();
     const brazilRole = config;
 
+		if(member.roles.has(brazilRole)) {
 
-   if(member.roles.has(brazilRole))
-      {
+       await(message.member.removeRole(brazilRole));
+ try {
+         message.channel.send(`Removed role from ${member}`);
+       } catch(e){
 
-      await(message.member.removeRole(brazilRole));
+       }
 
-      try{
-        console.log(`removed role from ${member}`);
-      } catch(e){
-
-      }
-
- }
+  }
 	},
 };
