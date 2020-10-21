@@ -23,6 +23,7 @@ declare module 'discord.js' {
   interface Client {
     commands: Command[];
     findCommand(search: string): Command | undefined;
+    sequelize: import('sequelize').Sequelize;
   }
 
   interface User {

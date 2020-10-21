@@ -9,7 +9,7 @@ module.exports = (client, message) => {
 	const { content, author, member, channel, guild } = message;
 
 	const { prefix } = config;
-	if (author.bot || !content.toLowerCase().startsWith(prefix)) return;
+	if (!guild || author.bot || !content.toLowerCase().startsWith(prefix)) return;
 
 	const [search, ...args] = content.slice(prefix.length).split(/\s+/);
 

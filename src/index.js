@@ -2,6 +2,7 @@ const { Client } = require('discord.js');
 const chalk = require('chalk');
 const path = require('path');
 const { listAll } = require('./utils');
+const { Sequelize } = require('sequelize');
 
 require('dotenv').config();
 
@@ -23,5 +24,24 @@ for (const file of listAll(path.join(__dirname, 'events'))) {
 	client.on(eventName, (...args) => require(file)(client, ...args));
 }
 
-console.log(chalk.yellow('Logging in...'));
-client.login(process.env.TOKEN);
+(async () => {
+	client.sequelize = new Sequelize({
+		host: 'sql10.freemysqlhosting.net',
+		database: 'sql10372189',
+		username: 'sql10372189',
+		password: process.env.DB_PASSWORD,
+		port: 3306,
+		dialect: 'mysql',
+	});
+
+	try {
+		console.log(chalk.cyan('Connecting to database...'));
+		await client.sequelize.authenticate();
+		await client.sequelize.sync();
+	} catch (err) {
+		console.error(err);
+	}
+
+	console.log(chalk.yellow('Logging in...'));
+	client.login(process.env.TOKEN);
+})();
