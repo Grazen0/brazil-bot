@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const config = require('../../../config.json');
 
 module.exports = {
-	name: 'Shop',
+	name: 'shop',
 	description: "Shop for items",
 	usage: ['(page)'],
 	execute: async ({  client, channel, message, args }) => {
