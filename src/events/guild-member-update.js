@@ -15,12 +15,17 @@ module.exports = (client, prevMember, member) => {
 	} = member;
 
 	// Check if member got brazil role
-	if (!(!prevMember.roles.cache.get(brazilRole) && cache.get(brazilRole)))
-		return;
+	const prevRole = prevMember.roles.cache.get(brazilRole);
+	const newRole = cache.get(brazilRole);
+	if (!prevRole && newRole) {
+		// Get channel and send message
+		const channel = guild.channels.cache.get(brazilChannel);
+		if (!channel || !(channel instanceof TextChannel)) return;
 
-	// Get channel and send message
-	const channel = guild.channels.cache.get(brazilChannel);
-	if (!channel || !(channel instanceof TextChannel)) return;
-
-	channel.send(`<@${id}>, welcome to Brazil!`);
+		channel.send(`<@${id}>, welcome to Brazil!`);
+	} else if (prevRole && !newRole) {
+		member.user.send(
+			'Your visit to Brazil has ended. We hope you come back soon!'
+		);
+	}
 };

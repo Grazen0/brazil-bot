@@ -12,9 +12,9 @@ module.exports = client => {
 	// Schedule expired tickets check
 	setInterval(async () => {
 		const tickets = await client.models.UserTickets.findAll();
+		const guild = client.guilds.cache.get(config.mainGuild);
 		const now = Date.now();
 
-		const guild = client.guilds.cache.get(config.mainGuild);
 		if (guild) {
 			for (const { user_id, until } of tickets) {
 				if (until > now) continue;
@@ -24,13 +24,6 @@ module.exports = client => {
 
 				await member.roles.remove(config.brazilRole);
 				await client.models.UserTickets.destroy({ where: { user_id } });
-
-				const user = client.users.cache.get(user_id);
-				if (user) {
-					user.send(
-						'Your visit to Brazil has ended. We hope you come back soon!'
-					);
-				}
 			}
 		}
 	}, config.expireCheckInterval * 1000);
