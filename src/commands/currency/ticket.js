@@ -11,8 +11,8 @@ module.exports = {
 	name: 'ticket',
 	description: `Buy a ticket to brazil for ${asCurrency(getPrice())}!`,
 	execute: async ({ channel, author, client, member }) => {
-		if (!(await client.models.UserTickets.findByPk(author.id))) {
-			channel.send('You alreay have the Brazil role!');
+		if (await client.models.UserTickets.findByPk(author.id)) {
+			channel.send('You already have the Brazil role, dummy');
 			return;
 		}
 
