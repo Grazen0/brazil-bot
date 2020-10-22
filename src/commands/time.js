@@ -13,7 +13,7 @@ module.exports = {
 		const minutes = Math.floor(rest / 60000) - hours * 60;
 
 		channel.send(
-			`You have ${hours} hours and ${minutes} minutes left in Brazil!`
+			`You have ${hours} hours and ${minutes} minutes left in Brazil.`
 		);
 	},
 };
