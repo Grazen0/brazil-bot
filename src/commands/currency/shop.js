@@ -1,11 +1,11 @@
 const { MessageEmbed } = require('discord.js');
-const config = require('../../config.json');
+const config = require('../../../config.json');
 
 module.exports = {
 	name: 'Shop',
 	description: "Shop for items",
 	usage: ['(page)'],
-	execute: async ({ message, args }) => {
+	execute: async ({  channel, message, args }) => {
     channel.send(
       new MessageEmbed()
         .setTitle("Brazil Bot's shop")
@@ -13,7 +13,5 @@ module.exports = {
         .setDescription('Item shop is empty')
         .setFooter(`do ${config.prefix}shop (page number)`)
     );
-
-    channel.send(embed);
 	},
 };
