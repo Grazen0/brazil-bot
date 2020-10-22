@@ -40,6 +40,7 @@ module.exports = {
 			const song = songs[Math.floor(Math.random() * songs.length)];
 			if (!song) return;
 
+			console.log(song);
 			const dispatcher = connection.play(
 				await ytdl(song, {
 					filter: 'audioonly',
