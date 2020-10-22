@@ -11,5 +11,6 @@ module.exports = {
 
 		await client.models.UserTickets.destroy({ where: { user_id: author.id } });
 		await member.roles.remove(config.brazilRole);
+		await client.log(`${author.tag} left Brazil with leave command.`);
 	},
 };

@@ -48,6 +48,7 @@ for (const file of listAll('./src/events')) {
 		client.models = {
 			UserCurrency: require('./models/UserCurrency')(sequelize),
 			UserTickets: require('./models/UserTickets')(sequelize),
+			Logs: require('./models/Logs')(sequelize),
 		};
 
 		// Connect to database

@@ -31,6 +31,9 @@ module.exports = {
 		});
 
 		await member.roles.add(config.brazilRole);
+		await client.log(
+			`${author.tag} bought a ticket to Brazil for ${asCurrency(price)}`
+		);
 		author.send(
 			`You bough a ticket to Brazil for one day (${asCurrency(
 				price
