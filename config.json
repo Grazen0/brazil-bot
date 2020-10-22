@@ -1,12 +1,13 @@
 {
-	"prefix": "b! ",
+	"prefix": "b!",
 	"activity": {
 		"type": "LISTENING",
-		"name": "b! help"
+		"name": "b!help"
 	},
 	"embedColor": "f7f71b",
 	"brazilRole": "768144588527239191",
 	"brazilChannel": "766399985327538187",
+	"musicChannel": "768839934365925386",
 	"dailyReward": 100,
 	"weeklyReward": 850,
 	"sundayDiscount": 0.75,
@@ -17,5 +18,12 @@
 	},
 	"owners": ["537486856384675852", "675391536451682324"],
 	"expireCheckInterval": 10,
-	"mainGuild": "695820647947042896"
+	"mainGuild": "695820647947042896",
+	"songs": [
+		"https://www.youtube.com/watch?v=bqao21cZ5nM",
+		"https://www.youtube.com/watch?v=4flaTr0tPq8",
+		"https://www.youtube.com/watch?v=bORLmILswnM",
+		"https://www.youtube.com/watch?v=dxYNMO-PdHA",
+		"https://www.youtube.com/watch?v=VxrkIudteAA"
+	]
 }

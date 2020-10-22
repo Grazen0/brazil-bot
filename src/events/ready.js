@@ -28,5 +28,14 @@ module.exports = client => {
 		}
 	}, config.expireCheckInterval * 1000);
 
+	// Leave all voice channels
+	client.guilds.cache.forEach(
+		({
+			me: {
+				voice: { channel },
+			},
+		}) => channel && channel.leave()
+	);
+
 	console.log(chalk.blue(`Logged in as ${user.tag}!`));
 };
