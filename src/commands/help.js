@@ -5,6 +5,7 @@ module.exports = {
 	name: 'help',
 	description: "Shows this bot's command list.",
 	usage: ['(command)'],
+	aliases: ['commands'],
 	execute: async ({ channel, client, args }) => {
 		const command = client.findCommand(args[0] || '');
 		if (!command) {

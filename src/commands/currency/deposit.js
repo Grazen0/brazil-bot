@@ -4,7 +4,7 @@ module.exports = {
 	name: 'deposit',
 	description: 'Transfers money to another user.',
 	usage: ['@User', '[amount]'],
-	execute: async ({ author, args, message, channel }) => {
+	execute: async ({ author, args, message, channel, client }) => {
 		const amount = parseInt(args[1]);
 		if (!amount || amount <= 0) {
 			channel.send('You must enter a valid amount!');
@@ -28,5 +28,6 @@ module.exports = {
 		channel.send(
 			`Successfully transferred ${asCurrency(amount)} to \`${victim.tag}\`!`
 		);
+		await client.log(`${author} sent $${amount} to ${victim}`);
 	},
 };
