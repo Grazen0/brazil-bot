@@ -11,7 +11,7 @@ module.exports = {
 			return;
 		}
 
-		const reward = parseInt(args[0]);
+		const reward = parseInt(args[1]);
 		const member = message.mentions.users.first();
 
 		if (isNaN(reward)) {
