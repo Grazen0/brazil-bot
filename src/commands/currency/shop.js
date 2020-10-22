@@ -11,7 +11,7 @@ module.exports = {
         .setTitle("Brazil Bot's shop")
         .setColor(config.embedColor)
         .setThumbnail(client.user.displayAvatarURL({ dynamic: true}))
-        .setDescription('Item shop is empty')
+        .setDescription(`Buy a ticket **$${config.ticketPrice}** \`${config.prefix}ticket\``)
         .setFooter(`do ${config.prefix}shop (page number)`)
     );
 	},
