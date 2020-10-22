@@ -24,9 +24,11 @@ declare module 'discord.js' {
     commands: Command[];
     findCommand(search: string): Command | undefined;
     sequelize: import('sequelize').Sequelize;
+    log(message: string): Promise<void>;
     models: {
       UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
       UserTickets: ReturnType<typeof import('./models/UserTickets')>;
+      Logs: ReturnType<typeof import('./models/Logs')>;
     }
   }
 
