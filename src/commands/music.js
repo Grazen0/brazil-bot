@@ -33,21 +33,27 @@ module.exports = {
 			return;
 		}
 
-		const connection = await vc.join();
-		voice.setDeaf(true);
+		try {
+			const connection = await vc.join();
+			voice.setDeaf(true);
 
-		const song = songs[Math.floor(Math.random() * songs.length)];
-		if (!song) return;
+			const song = songs[Math.floor(Math.random() * songs.length)];
+			if (!song) return;
 
-		const dispatcher = connection.play(
-			await ytdl(song, {
-				filter: 'audioonly',
-			}),
-			{ type: 'opus' }
-		);
+			const dispatcher = connection.play(
+				await ytdl(song, {
+					filter: 'audioonly',
+				}),
+				{ type: 'opus' }
+			);
 
-		dispatcher.on('finish', vc.leave);
+			dispatcher.on('finish', vc.leave);
 
-		channel.send(`**Now playing:** ${song}`);
+			channel.send(`**Now playing:** ${song}`);
+		} catch (err) {
+			console.error(err);
+			vc.leave();
+			channel.send('A weird error occurred! Tell the devs about this pls');
+		}
 	},
 };
