@@ -4,7 +4,7 @@ const { asCurrency } = require('../../../util/utils');
 
 module.exports = {
 	name: 'number',
-	description: 'Earn more money, doubles your gamble',
+	description: 'Earn more money (doubles your gamble)',
   usage: '(number)',
 	execute: async ({ channel, author, client, args }) => {
 		const bal = await author.getBalance();
