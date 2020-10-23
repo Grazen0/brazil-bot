@@ -24,7 +24,7 @@ module.exports = {
 			return;
 		}
 
-		await author.add(-price);
+		//await author.add(-price);
 
     await channel.send(
 			new MessageEmbed()
