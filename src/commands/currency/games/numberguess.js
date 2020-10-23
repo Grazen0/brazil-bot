@@ -17,18 +17,18 @@ module.exports = {
 
 		if (bal < price) {
 			channel.send(
-				`You don't have enough money lol, you need ${asCurrency(gamblePrice)}`
+				`You don't have enough money lol, you need ${asCurrency(price)}`
 			);
 			return;
 		}
 
-		await author.add(-price);
+		//await author.add(-price);
 
     await channel.send(
 			new MessageEmbed()
-				.setTitle(`Guess a number between 1 and 10 to get a prize of ${reward}!`)
-				.setColor(embedColor)
-				//.setDescription();
+				.setTitle(`Guess a number between 1 and 10 to get a prize of ${reward-price}!`)
+				.setColor(config.embedColor)
+				.setDescription('I don\'t have anything yet')
         .setImage(
 					'https://media1.tenor.com/images/467d353f7e2d43563ce13fddbb213709/tenor.gif?itemid=12136175'
 				)
