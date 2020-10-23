@@ -12,7 +12,7 @@ module.exports = {
     const reward = price*3;
 
     if (!args.length) {
-  		return message.channel.send(`You didn't mention your bid`);
+  		return channel.send(`You didn't mention your bid`);
   	}
 
 		if (bal < price) {
@@ -32,5 +32,6 @@ module.exports = {
         .setImage(
 					'https://media1.tenor.com/images/467d353f7e2d43563ce13fddbb213709/tenor.gif?itemid=12136175'
 				)
+      );
 	},
 };
