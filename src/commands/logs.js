@@ -25,5 +25,7 @@ module.exports = {
 				.setColor(config.embedColor)
 				.setDescription(rows.join('\n'))
 		);
+
+		channel.send('Logs sent!');
 	},
 };

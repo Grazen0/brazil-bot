@@ -6,8 +6,8 @@ module.exports = {
 	name: 'rule34',
 	description: '...',
 	usage: ['(tag1)', '(tag2)', '...'],
-	execute: async ({ channel }) => {
-		channel.send(
+	execute: async ({ channel, client, author }) => {
+		await channel.send(
 			new MessageEmbed()
 				.setTitle('SIKE')
 				.setImage(
@@ -15,5 +15,7 @@ module.exports = {
 				)
 				.setColor(config.embedColor)
 		);
+
+		client.log(`${author.tag} gor rickrolled.`);
 	},
 };
