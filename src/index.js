@@ -42,15 +42,15 @@ for (const file of listAll('./src/events')) {
 		logging: false,
 	});
 
-	try {
-		// Sequelize startup
-		console.log(chalk.cyan('Connecting to database...'));
-		client.models = {
-			UserCurrency: require('./models/UserCurrency')(sequelize),
-			UserTickets: require('./models/UserTickets')(sequelize),
-			Logs: require('./models/Logs')(sequelize),
-		};
+	// Sequelize startup
+	console.log(chalk.cyan('Connecting to database...'));
+	client.models = {
+		UserCurrency: require('./models/UserCurrency')(sequelize),
+		UserTickets: require('./models/UserTickets')(sequelize),
+		Logs: require('./models/Logs')(sequelize),
+	};
 
+	try {
 		// Connect to database
 		await sequelize.authenticate();
 		await sequelize.sync({
