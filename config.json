@@ -25,5 +25,7 @@
 		"https://www.youtube.com/watch?v=bORLmILswnM",
 		"https://www.youtube.com/watch?v=dxYNMO-PdHA",
 		"https://www.youtube.com/watch?v=VxrkIudteAA"
-	]
+	],
+	"gamblePrice": 75,
+	"gambleReward": 225
 }
