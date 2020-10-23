@@ -34,14 +34,15 @@ module.exports = {
       );
 
       collector.on('collect', message => {
-	       if (Number.isInteger(message.content)) {
+        const messageAnswer = parseInt(message.content);
+	       //if (Number.isInteger(message.content)) {
            if (message.content === answer) {
              author.add(reward);
              channel.send(`Correct! You won ${reward-price}!`);
            } else {
-             return channel.send('better luck next time.')
+             return channel.send('better luck next time.' + messageAnswer)
            }
-         }
+         //}
        });
 	},
 };
