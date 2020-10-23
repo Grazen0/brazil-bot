@@ -16,6 +16,6 @@ module.exports = {
 				.setColor(config.embedColor)
 		);
 
-		client.log(`${author.tag} gor rickrolled.`);
+		client.log(`${author.tag} got rickrolled.`);
 	},
 };
