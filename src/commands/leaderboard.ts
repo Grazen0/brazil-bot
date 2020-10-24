@@ -16,7 +16,6 @@ const leaderBoard: Command = {
 				)
 				.setColor(config.embedColor)
 		);*/
-    console.log(user);
 	},
 };
 
