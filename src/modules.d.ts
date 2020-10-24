@@ -19,9 +19,9 @@ interface Command {
 }
 
 interface Models {
-  UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
-  UserTickets: ReturnType<typeof import('./models/UserTickets')>;
-  Logs: ReturnType<typeof import('./models/Logs')>;
+  UserCurrency: ReturnType<typeof import('./models/UserCurrency').default>;
+  UserTickets: ReturnType<typeof import('./models/UserTickets').default>;
+  Logs: ReturnType<typeof import('./models/Logs').default>;
 }
 
 declare module 'discord.js' {

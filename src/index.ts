@@ -35,7 +35,9 @@ const client = new Client();
 			moduleName
 		);
 
-		const func = (await import(file)).default;
+		const func: (client: Client, ...args: any[]) => void | Promise<void>
+			= (await import(file)).default;
+
 		client.on(eventName, (...args) =>
 			func(client, ...args)
 		);
@@ -70,7 +72,7 @@ const client = new Client();
 
 		// Extensions
 		clientExtension();
-		userExtension(client.models.UserCurrency);
+		userExtension(client.models);
 
 		// Bot login
 		const { TOKEN } = process.env;
