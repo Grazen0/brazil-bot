@@ -15,7 +15,6 @@ const no: Command = {
 				.setColor(config.embedColor)
 		);
 
-		client.log(`${author.tag} got rickrolled.`);
 	},
 };
 
