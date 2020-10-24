@@ -1,7 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 import config from '../config.json';
 import { asCurrency } from '../util/utils';
-import balance from './currency/balance';
 
 const leaderBoard: Command = {
 	name: 'leaderboard',
