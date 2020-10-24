@@ -12,8 +12,8 @@ const leaderBoard: Command = {
 
 		const lines = rows
 			.map(row => ({ balance: row.balance, user: client.users.cache.get(row.user_id) }))
-			.filter(data => !data.user?.bot)
-			.map((data, index) => `${index + 1}. ${data.user?.tag} - ${data.balance}`);
+			.filter(({ user }) => user && !user.bot)
+			.map(({ user, balance }, index) => `${index + 1}. ${user?.tag} - ${asCurrency(balance)}`);
 
 		channel.send(
 			new MessageEmbed()
