@@ -5,7 +5,7 @@ const no: Command = {
 	name: 'no',
 	description: 'no',
 	usage: ["no"],
-	execute: async ({ channel, client, author }) => {
+	execute: async ({ channel }) => {
 		await channel.send(
 			new MessageEmbed()
 				.setTitle('NO')
