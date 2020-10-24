@@ -30,5 +30,5 @@ export default (client: Client) => {
 	// Leave all voice channels
 	client.guilds.cache.forEach(guild => guild.me?.voice.channel?.leave());
 
-	console.log(chalk.blue(`Logged in as ${user.tag}!`));
+	console.log(chalk.blue(`Logged in as "${user.tag}"!`));
 };

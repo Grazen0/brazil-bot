@@ -1,21 +1,26 @@
 import { MessageEmbed } from 'discord.js';
 import config from '../config.json';
+import { asCurrency } from '../util/utils';
+import balance from './currency/balance';
 
 const leaderBoard: Command = {
 	name: 'leaderboard',
 	description: 'Bot Leaderboard',
 	execute: async ({ channel, client }) => {
-    const user = await client.models.UserCurrency.findAll();
-    //const username = user.username;
-    //const balance = await user.getBalance();
-		/*await channel.send(
+		const rows = await client.models.UserCurrency.findAll();
+		rows.sort((a, b) => b.balance - a.balance);
+
+		const lines = rows
+			.map(row => ({ balance: row.balance, user: client.users.cache.get(row.user_id) }))
+			.filter(data => !data.user?.bot)
+			.map((data, index) => `${index + 1}. ${data.user?.tag} - ${data.balance}`);
+
+		channel.send(
 			new MessageEmbed()
-				.setTitle('BrazilBot\'s Leaderboard')
-				.setDescription(
-					`Username:${username}\nBalance:${balance}`
-				)
+				.setTitle('Balance leaderboard')
 				.setColor(config.embedColor)
-		);*/
+				.setDescription(`\`\`\`${lines.join('\n')}\`\`\``)
+		);
 	},
 };
 

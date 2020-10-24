@@ -22,7 +22,7 @@ const query: Command = {
 			channel.send(
 				new MessageEmbed()
 					.setColor('ff5252')
-					.setTitle('Error!')
+					.setTitle('Error')
 					.setDescription(err)
 			);
 		}
