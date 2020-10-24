@@ -1,0 +1,19 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"indent": ["warn", "tab", { "SwitchCase": 1 }],
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"constructor-super": "warn",
+		"semi": "warn",
+		"linebreak-style": ["warn", "windows"],
+		"eol-last": ["warn", "always"]
+	}
+}
