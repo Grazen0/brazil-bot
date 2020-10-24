@@ -9,6 +9,8 @@ const leaderBoard: Command = {
 		const rows = await client.models.UserCurrency.findAll();
 		rows.sort((a, b) => b.balance - a.balance);
 
+		rows.length = 10;
+
 		const lines = rows
 			.map(row => ({ balance: row.balance, user: client.users.cache.get(row.user_id) }))
 			.filter(({ user }) => user && !user.bot)
