@@ -7,25 +7,28 @@ class Logs extends Model {
 }
 
 export default (sequelize: Sequelize) => {
-	Logs.init({
-		log_id: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			autoIncrement: true,
-			primaryKey: true,
+	Logs.init(
+		{
+			log_id: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+				autoIncrement: true,
+				primaryKey: true,
+			},
+			message: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			},
+			date: {
+				type: DataTypes.BIGINT,
+				allowNull: false,
+			},
 		},
-		message: {
-			type: DataTypes.TEXT,
-			allowNull: false,
-		},
-		date: {
-			type: DataTypes.BIGINT,
-			allowNull: false,
-		},
-	}, {
-		tableName: 'logs',
-		timestamps: false,
-		sequelize
-	});
+		{
+			tableName: 'logs',
+			timestamps: false,
+			sequelize,
+		}
+	);
 	return Logs;
 };

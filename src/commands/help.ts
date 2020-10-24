@@ -39,10 +39,10 @@ const help: Command = {
 			.addField(
 				'Usage:',
 				'`' +
-				config.prefix +
-				name +
-				(usage.length ? ` ${usage.join(' ')}` : '') +
-				'`'
+					config.prefix +
+					name +
+					(usage.length ? ` ${usage.join(' ')}` : '') +
+					'`'
 			);
 
 		if (aliases.length) {

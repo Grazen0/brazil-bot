@@ -5,12 +5,14 @@ export default (client: Client, message: Message) => {
 	const { content, author, member, channel, guild } = message;
 
 	const { prefix } = config;
-	if (!guild ||
+	if (
+		!guild ||
 		author.bot ||
 		!member ||
 		!(channel instanceof TextChannel) ||
 		!content.toLowerCase().startsWith(prefix.toLowerCase())
-	) return;
+	)
+		return;
 
 	const [search, ...args] = content.slice(prefix.length).split(/\s+/);
 
@@ -36,7 +38,8 @@ export default (client: Client, message: Message) => {
 	const diff = now - (author.lastCommand[name] || 0);
 	if (diff < cooldown) {
 		channel.send(
-			`Hold up! You have to wait \`${Math.floor((cooldown - diff) / 10) / 100
+			`Hold up! You have to wait \`${
+				Math.floor((cooldown - diff) / 10) / 100
 			}s\` before using this command!`
 		);
 		return;

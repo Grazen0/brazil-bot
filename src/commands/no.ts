@@ -4,7 +4,7 @@ import config from '../config.json';
 const no: Command = {
 	name: 'no',
 	description: 'no',
-	usage: ["no"],
+	usage: ['no'],
 	execute: async ({ channel }) => {
 		await channel.send(
 			new MessageEmbed()
@@ -14,7 +14,6 @@ const no: Command = {
 				)
 				.setColor(config.embedColor)
 		);
-
 	},
 };
 

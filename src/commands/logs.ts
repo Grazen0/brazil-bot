@@ -12,10 +12,15 @@ const logs: Command = {
 			return;
 		}
 
-		const rows = logs.map(({ date, message }: { date: number, message: string }) => {
-			const d = new Date(date);
-			return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} - ${message}`;
-		});
+		const rows = logs.map(
+			({ date, message }: { date: number; message: string }) => {
+				const d = new Date(date);
+
+				return `${d.getDate()}/${
+					d.getMonth() + 1
+				}/${d.getFullYear()} - ${message}`;
+			}
+		);
 
 		await author.send(
 			new MessageEmbed()

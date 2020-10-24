@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
-import config from '../config.json';
-import { asCurrency } from '../util/utils';
+import config from '../../config.json';
+import { asCurrency } from '../../util/utils';
 
 const leaderBoard: Command = {
 	name: 'leaderboard',
@@ -12,9 +12,15 @@ const leaderBoard: Command = {
 		rows.length = Math.min(rows.length, 10);
 
 		const lines = rows
-			.map(row => ({ balance: row.balance, user: client.users.cache.get(row.user_id) }))
+			.map(row => ({
+				balance: row.balance,
+				user: client.users.cache.get(row.user_id),
+			}))
 			.filter(({ user }) => user && !user.bot)
-			.map(({ user, balance }, index) => `${index + 1}. ${user?.tag} - ${asCurrency(balance)}`);
+			.map(
+				({ user, balance }, index) =>
+					`${index + 1}. ${user?.tag} - ${asCurrency(balance)}`
+			);
 
 		channel.send(
 			new MessageEmbed()

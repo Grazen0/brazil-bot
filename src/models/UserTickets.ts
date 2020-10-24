@@ -6,21 +6,23 @@ class UserTickets extends Model {
 }
 
 export default (sequelize: Sequelize) => {
-	UserTickets.init({
-		user_id: {
-			type: DataTypes.STRING(18),
-			allowNull: false,
-			primaryKey: true,
+	UserTickets.init(
+		{
+			user_id: {
+				type: DataTypes.STRING(18),
+				allowNull: false,
+				primaryKey: true,
+			},
+			until: {
+				type: DataTypes.BIGINT,
+				allowNull: false,
+			},
 		},
-		until: {
-			type: DataTypes.BIGINT,
-			allowNull: false,
-		},
-	},
 		{
 			timestamps: false,
 			tableName: 'user_tickets',
-			sequelize
-		});
+			sequelize,
+		}
+	);
 	return UserTickets;
 };

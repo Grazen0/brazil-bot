@@ -8,32 +8,34 @@ class UserCurrency extends Model {
 }
 
 export default (sequelize: Sequelize) => {
-	UserCurrency.init({
-		user_id: {
-			type: DataTypes.STRING(18),
-			primaryKey: true,
-			allowNull: false,
+	UserCurrency.init(
+		{
+			user_id: {
+				type: DataTypes.STRING(18),
+				primaryKey: true,
+				allowNull: false,
+			},
+			balance: {
+				type: DataTypes.BIGINT,
+				allowNull: false,
+				defaultValue: 0,
+			},
+			last_daily: {
+				type: DataTypes.BIGINT,
+				allowNull: false,
+				defaultValue: 0,
+			},
+			last_weekly: {
+				type: DataTypes.BIGINT,
+				allowNull: false,
+				defaultValue: 0,
+			},
 		},
-		balance: {
-			type: DataTypes.BIGINT,
-			allowNull: false,
-			defaultValue: 0,
-		},
-		last_daily: {
-			type: DataTypes.BIGINT,
-			allowNull: false,
-			defaultValue: 0,
-		},
-		last_weekly: {
-			type: DataTypes.BIGINT,
-			allowNull: false,
-			defaultValue: 0,
-		},
-	},
-	{
-		tableName: 'user_currency',
-		timestamps: false,
-		sequelize
-	});
+		{
+			tableName: 'user_currency',
+			timestamps: false,
+			sequelize,
+		}
+	);
 	return UserCurrency;
 };

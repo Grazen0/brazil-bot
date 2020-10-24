@@ -1,7 +1,11 @@
 import { Client, GuildMember, TextChannel } from 'discord.js';
 import config from '../config.json';
 
-export default (client: Client, prevMember: GuildMember, member: GuildMember) => {
+export default (
+	client: Client,
+	prevMember: GuildMember,
+	member: GuildMember
+) => {
 	const { brazilRole, brazilChannel } = config;
 	const {
 		guild,

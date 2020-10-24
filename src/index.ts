@@ -16,10 +16,13 @@ const client = new Client();
 
 (async () => {
 	// Register all available commands
-	client.commands = (await Promise.all(listAll(path.join(__dirname, 'commands'))
-		.filter(path => /\.(js|ts)$/i.test(path))
-		.map(file => import(file))
-	))
+	client.commands = (
+		await Promise.all(
+			listAll(path.join(__dirname, 'commands'))
+				.filter(path => /\.(js|ts)$/i.test(path))
+				.map(file => import(file))
+		)
+	)
 		.map(imported => imported.default)
 		.filter(command => command?.name);
 
@@ -35,12 +38,11 @@ const client = new Client();
 			moduleName
 		);
 
-		const func: (client: Client, ...args: any[]) => void | Promise<void>
-			= (await import(file)).default;
+		const func: (client: Client, ...args: any[]) => void | Promise<void> = (
+			await import(file)
+		).default;
 
-		client.on(eventName, (...args) =>
-			func(client, ...args)
-		);
+		client.on(eventName, (...args) => func(client, ...args));
 	});
 
 	// Database setup
