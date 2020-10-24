@@ -18,6 +18,12 @@ interface Command {
   execute: (e: CommandEvent) => Promise<void>;
 }
 
+interface Models {
+  UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
+  UserTickets: ReturnType<typeof import('./models/UserTickets')>;
+  Logs: ReturnType<typeof import('./models/Logs')>;
+}
+
 declare module 'discord.js' {
 
   interface Client {
@@ -25,11 +31,7 @@ declare module 'discord.js' {
     findCommand(search: string): Command | undefined;
     sequelize: import('sequelize').Sequelize;
     log(message: string): Promise<void>;
-    models: {
-      UserCurrency: ReturnType<typeof import('./models/UserCurrency')>;
-      UserTickets: ReturnType<typeof import('./models/UserTickets')>;
-      Logs: ReturnType<typeof import('./models/Logs')>;
-    }
+    models: Models;
   }
 
   interface User {
