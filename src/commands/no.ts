@@ -10,7 +10,7 @@ const no: Command = {
 			new MessageEmbed()
 				.setTitle('NO')
 				.setDescription(
-					'NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO'
+					'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO'
 				)
 				.setColor(config.embedColor)
 		);
