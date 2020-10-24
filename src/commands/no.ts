@@ -1,7 +1,7 @@
 import { MessageEmbed } from 'discord.js';
 import config from '../config.json';
 
-const rickRoll: Command = {
+const no: Command = {
 	name: 'no',
 	description: 'no',
 	usage: ["no"],
