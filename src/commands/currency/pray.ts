@@ -7,7 +7,7 @@ const pray: Command = {
 	cooldown: 300000,
 	execute: async ({ author, channel }) => {
 		const { min, max } = config.prayReward;
-		const chance = Math.floor(Math.random());
+		const chance = 1;
 		let reward = Math.floor(Math.random() * (max - min)) + min;
 
 if (chance == 1) {
