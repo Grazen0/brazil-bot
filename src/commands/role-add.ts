@@ -34,7 +34,7 @@ const roleAdd: Command = {
 			await client.log(`${author.tag} added Brazil role to ${tag}`);
 		} catch (err) {
 			channel.send(
-				'An error ocurred while removing the role! This is most likely an issue with permissions.'
+				'An error ocurred while adding the role! This is most likely an issue with permissions.'
 			);
 		}
 	},
