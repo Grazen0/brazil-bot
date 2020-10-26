@@ -15,7 +15,7 @@ const profile: Command = {
 		}
 
 		const bal = await user.getBalance();
-		const result = await client.models.UserTickets.findByPk(user.id);
+		const result = await client.models.UserTickets.findByPk(author.id);
 
 		const rest = result.until - Date.now();
 		const hours = Math.floor(rest / 3600000);
