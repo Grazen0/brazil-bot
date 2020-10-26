@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
-import config from '../../config.json';
-import { asCurrency } from '../../util/utils';
+import config from '../config.json';
+import { asCurrency } from '../util/utils';
 
 const profile: Command = {
 	name: 'profile',
@@ -19,7 +19,7 @@ const profile: Command = {
 		channel.send(
       new MessageEmbed()
 				.setTitle(`${user.username}'s profile`)
-				.setDescription(`Balance: ${bal}`)
+				.setDescription(`Balance: ${asCurrency(bal)}`)
 				.setColor(config.embedColor)
 		);
 	},
