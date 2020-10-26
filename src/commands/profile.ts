@@ -9,13 +9,14 @@ const profile: Command = {
 	usage: ['(@User)'],
 	execute: async ({ author, message: { mentions }, channel, client }) => {
 		const user = mentions.users.first() || author;
+		const userid = mentions.users.first().id || author;
 		if (user.bot) {
 			channel.send('The mentioned user is a bot!');
 			return;
 		}
 
 		const bal = await user.getBalance();
-		const result = await client.models.UserTickets.findByPk(author.id);
+		const result = await client.models.UserTickets.findByPk(userid);
 
 		const rest = result.until - Date.now();
 		const hours = Math.floor(rest / 3600000);
