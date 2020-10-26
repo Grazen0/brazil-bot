@@ -4,7 +4,7 @@ import { asCurrency } from '../../util/utils';
 
 const profile: Command = {
 	name: 'profile',
-	description: 'Shows your current profile',
+	description: 'Shows your profile',
 	aliases: ['p'],
 	usage: ['(@User)'],
 	execute: async ({ author, message: { mentions }, channel }) => {
