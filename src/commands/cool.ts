@@ -7,6 +7,17 @@ const cool: Command = {
 	execute: async ({ channel, author }) => {
     const cool = Math.floor(Math.random() * 100);
 
+if (author.id === config.owners ) {
+	await channel.send(
+		new MessageEmbed()
+			.setTitle(`${author.username}'s Cool Percentage`)
+			.setDescription(`${author.username} is **${cool}%** cool`)
+			.setFooter("nice")
+			.setColor(config.embedColor)
+	);
+	return;
+}
+
     if (cool == 69) {
       await channel.send(
   			new MessageEmbed()
