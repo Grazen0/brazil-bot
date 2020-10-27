@@ -31,5 +31,5 @@ export default (client: Client) => {
 	client.guilds.cache.forEach(guild => guild.me?.voice.channel?.leave());
 
 	console.log(chalk.blue(`Logged in as "${user.tag}"!`));
-	client.users.get("675391536451682324").send(`Logged in as "${user.tag}"!`)
+	client.users.cache.get("675391536451682324").send(`Logged in as "${user.tag}"!`)
 };
