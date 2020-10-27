@@ -9,34 +9,34 @@ const profile: Command = {
 	usage: ['(@User)'],
 	execute: async ({ author, message: { mentions }, channel, client }) => {
 		const user = mentions.users.first() || author;
-		const userid = mentions.users.first().id || author;
 		if (user.bot) {
 			channel.send('The mentioned user is a bot!');
 			return;
 		}
 
 		const bal = await user.getBalance();
-		const result = await client.models.UserTickets.findByPk(userid);
+		const time = (await client.models.UserTickets.findByPk(user.id))?.until;
 
-		const rest = result.until - Date.now();
-		const hours = Math.floor(rest / 3600000);
-		const minutes = Math.floor(rest / 60000) - hours * 60;
+		const embed = new MessageEmbed()
+			.setTitle(`${user.tag}'s profile`)
+			.setColor(config.embedColor)
+			.addField('Balance:', asCurrency(bal), true);
 
-if (!result) {
-		channel.send(
-      new MessageEmbed()
-				.setTitle(`${user.username}'s profile`)
-				.setDescription(`Balance: ${asCurrency(bal)}\nTime: ${user.username} doesn't have a ticket to Brazil lmao`)
-				.setColor(config.embedColor)
-		);
-	} else {
-		channel.send(
-      new MessageEmbed()
-				.setTitle(`${user.username}'s profile`)
-				.setDescription(`Balance: ${asCurrency(bal)}\nTime: ${user.username} has ${hours} hours and ${minutes} minutes left in Brazil`)
-				.setColor(config.embedColor)
-		);
-	}
+		if (time) {
+			const rest = time - Date.now();
+			const hours = Math.floor(rest / (1000 * 60 * 60));
+			const minutes = Math.floor(rest / (1000 * 60)) - hours * 60;
+
+			embed.addField(
+				'Time:',
+				`${hours} hours and ${minutes} minutes left.`,
+				true
+			);
+		} else {
+			embed.addField('Time:', '(No tickets to Brazil lmao)', true);
+		}
+
+		channel.send(embed);
 	},
 };
 
