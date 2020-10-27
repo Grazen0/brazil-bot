@@ -11,7 +11,7 @@ const cool: Command = {
 			new MessageEmbed()
 				.setTitle(`${author.username}'s Cool Percentage`)
 				.setDescription(`${author.username} is **${cool}%** cool`)
-				.setFooter(cool === 69 ? 'nice' : null)
+				.setFooter(cool === 69 ? 'nice' : '')
 				.setColor(config.embedColor)
 		);
 	},
