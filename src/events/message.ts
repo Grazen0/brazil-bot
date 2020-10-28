@@ -46,11 +46,6 @@ export default (client: Client, message: Message) => {
 	}
 
 
-	if (author.id === '491355138347368463') {
-		channel.send("screw you");
-		return;
-	}
-
 	author.lastCommand[name] = now;
 
 	command
