@@ -11,10 +11,11 @@ const bestow: Command = {
 			return;
 		}
 
-		const reward = parseInt(args[1]);
-		const member = args[0].match(/^[0-9]{18}$/) ?
-		  guild.members.cache.get(args[0])
-		  : message.mentions.first();
+		const [id, amount] = args;
+		const reward = parseInt(amount);
+		const member = id.match(/^[0-9]{18}$/)
+			? guild.members.cache.get(id)
+			: message.mentions.members?.first();
 
 		if (isNaN(reward)) {
 			channel.send('Please add a valid number');
