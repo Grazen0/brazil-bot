@@ -12,7 +12,12 @@ const bestow: Command = {
 		}
 
 		const reward = parseInt(args[1]);
-		const member = message.mentions.users.first();
+
+		if (args[0].match(/^[0-9]{18}$/)) {
+		const member = args[0];
+	} else {
+			const member = message.mentions.users.first();
+	}
 
 		if (isNaN(reward)) {
 			channel.send('Please add a valid number');

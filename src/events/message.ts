@@ -2,7 +2,7 @@ import { Client, Message, TextChannel } from 'discord.js';
 import config from '../config.json';
 
 export default (client: Client, message: Message) => {
-	const { content, author, member, channel, guild, channel } = message;
+	const { content, author, member, channel, guild } = message;
 
 	const { prefix } = config;
 	if (
