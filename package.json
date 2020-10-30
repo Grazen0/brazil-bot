@@ -3,9 +3,9 @@
 	"version": "1.0.0",
 	"main": "./dist/index.js",
 	"scripts": {
-		"start": "node . --unhandled-rejections=strict",
+		"start": "node .",
 		"build": "tsc",
-		"dev": "ts-node-dev --transpile-only --rs ./src/index.ts",
+		"dev": "ts-node-dev --respawn --transpile-only --rs ./src/index.ts",
 		"lint": "eslint . --fix"
 	},
 	"repository": {
