@@ -28,7 +28,7 @@ const reddit: Command = {
 
 		children.sort(() => Math.random() - 0.5);
 
-		const post = children.find(({ data: { over_18 } }: any) => !over_18);
+		const post = children.find(({ data: { over_18 } }: any) => !over_18 && !post_hint === 'video');
 
 		if (!post) {
 			channel.send("Couldn't find any posts");
