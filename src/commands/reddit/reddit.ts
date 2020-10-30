@@ -22,10 +22,6 @@ const reddit: Command = {
 			)
 		).json();
 
-    if (!children) {
-      channel.send("that is not a valid subreddit");
-      return;
-    }
 
 		children.sort(() => Math.random() - 0.5);
 
