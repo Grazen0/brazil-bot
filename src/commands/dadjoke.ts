@@ -18,7 +18,7 @@ const dadjoke: Command = {
 
 		const post = children.find(
 			({ data: { over_18, post_hint } }: any) =>
-				!over_18 && post_hint === 'image'
+				!over_18
 		);
 
 		if (!post) {
@@ -27,7 +27,7 @@ const dadjoke: Command = {
 		}
 
     const {
-      data: { url, ups, num_comments, permalink, title },
+      data: { ups, num_comments, permalink, title },
     } = post;
 
 		channel.send(
@@ -35,7 +35,6 @@ const dadjoke: Command = {
 				.setTitle(title)
 				.setURL(`https://reddit.com${permalink}`)
 				.setColor(config.embedColor)
-				.setImage(url)
 				.setFooter(`👍 ${ups} | 💬 ${num_comments}`)
 		);
 	},
