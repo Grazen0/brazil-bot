@@ -8,20 +8,23 @@ const reddit: Command = {
 	execute: async ({ channel, args }) => {
 
     if (!args.length) {
-      channel.send("please specify your subreddit.");
+      channel.send("Please specify your subreddit.");
       return;
     }
 
     const subreddit = args[0];
 
-		const {
-			data: { children },
-		} = await (
+		const {data} = await (
 			await fetch(
 				`https://api.reddit.com/r/${subreddit}/hot.json?sort=top&t=day&limit=50`
 			)
 		).json();
 
+ const children = data?.children;
+
+ if (!children) {
+   channel.send("That is not a valid subreddit.");
+ }
 
 		children.sort(() => Math.random() - 0.5);
 
