@@ -21,7 +21,7 @@ const reddit: Command = {
 		 * ? - "Everything inside the previous group was optional"
 		 * ( - Another group start
 		 * [a-z0-9_] - Match any letter, number or underscore
-		 * {1,20} - Match the previous thing if repeated min. 2, max. 20
+		 * {1,20} - Match the previous thing if repeated min. 1, max. 20
 		 * ) - Another group end
 		 * $ - Match the end of the string
 		 *
