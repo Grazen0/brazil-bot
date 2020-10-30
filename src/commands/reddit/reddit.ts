@@ -29,7 +29,7 @@ const reddit: Command = {
 		const children = data?.children;
 
 		if (!children) {
-			channel.send('No post found!.');
+			channel.send('No post found!');
 			return;
 		}
 
