@@ -1,6 +1,5 @@
 import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
-import { shuffle } from '../util/utils';
 import config from '../config.json';
 
 const meme: Command = {
@@ -15,10 +14,11 @@ const meme: Command = {
 			)
 		).json();
 
-		children.sort(() => Math.random() - 0.5)
+		children.sort(() => Math.random() - 0.5);
 
 		const post = children.find(
-			({ data: { over_18, post_hint } }) => !over_18 && post_hint === 'image'
+			({ data: { over_18, post_hint } }: any) =>
+				!over_18 && post_hint === 'image'
 		);
 
 		if (!post) {
