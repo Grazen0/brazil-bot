@@ -16,9 +16,9 @@ const reddit: Command = {
 		 * ^ - Match the start of the string
 		 * ( - Group start
 		 * ?: - Basically, "Match this group, but don't show in results"
-		 * r\/ - Matches "r/"
+		 * r\/ - Matches "r/" (It's necessary to escape "/")
 		 * ) - Group end
-		 * ? - "Everything inside this group was optional" (Not necessary to add "r/")
+		 * ? - "Everything inside the previous group was optional"
 		 * ( - Another group start
 		 * [a-z0-9_] - Match any letter, number or underscore
 		 * {1,20} - Match the previous thing if repeated min. 2, max. 20
