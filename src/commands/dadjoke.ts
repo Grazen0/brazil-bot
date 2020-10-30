@@ -26,7 +26,9 @@ const meme: Command = {
 			return;
 		}
 
-		const { url, ups, num_comments, permalink, title } = post.data;
+    const {
+      data: { url, ups, num_comments, permalink, title },
+    } = post;
 
 		channel.send(
 			new MessageEmbed()
