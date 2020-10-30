@@ -1,16 +1,16 @@
 import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
-import config from '../config.json';
+import config from '../../config.json';
 
-const dadjoke: Command = {
-	name: 'dadjoke',
-	description: 'Gets a random dad joke from Reddit (r/dadjokes)',
+const meme: Command = {
+	name: 'meme',
+	description: 'Gets a random meme from Reddit (r/memes)',
 	execute: async ({ channel }) => {
 		const {
 			data: { children },
 		} = await (
 			await fetch(
-				'https://api.reddit.com/r/dadjokes/hot.json?sort=top&t=day&limit=50'
+				'https://api.reddit.com/r/memes/hot.json?sort=top&t=day&limit=50'
 			)
 		).json();
 
@@ -18,27 +18,28 @@ const dadjoke: Command = {
 
 		const post = children.find(
 			({ data: { over_18, post_hint } }: any) =>
-				!over_18
+				!over_18 && post_hint === 'image'
 		);
 
 		if (!post) {
-			channel.send("Couldn't find any dad jokes");
+			channel.send("Couldn't find any juicy memes!");
 			return;
 		}
 
-    const {
-      data: {ups, num_comments, permalink, title, selftext },
-    } = post;
+		const {
+			data: { url, ups, num_comments, permalink, title, author },
+		} = post;
 
 		channel.send(
 			new MessageEmbed()
 				.setTitle(title)
+				.setAuthor(`u/${author}`)
 				.setURL(`https://reddit.com${permalink}`)
 				.setColor(config.embedColor)
-        .setDescription(selftext)
+				.setImage(url)
 				.setFooter(`👍 ${ups} | 💬 ${num_comments}`)
 		);
 	},
 };
 
-export default dadjoke;
+export default meme;
