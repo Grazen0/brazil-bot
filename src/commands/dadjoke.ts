@@ -2,7 +2,7 @@ import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
 import config from '../config.json';
 
-const meme: Command = {
+const dadjoke: Command = {
 	name: 'dadjoke',
 	description: 'Gets a random dad joke from Reddit (r/dadjokes)',
 	execute: async ({ channel }) => {
@@ -41,4 +41,4 @@ const meme: Command = {
 	},
 };
 
-export default meme;
+export default dadjoke;
