@@ -11,7 +11,7 @@ const meme: Command = {
 			data: { children },
 		} = await (
 			await fetch(
-				'https://api.reddit.com/r/memes/hot.json?sort=top&t=day&limit=30'
+				'https://api.reddit.com/r/memes/hot.json?sort=top&t=day&limit=50'
 			)
 		).json();
 
