@@ -1,6 +1,5 @@
 import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
-import { shuffle } from '../util/utils';
 import config from '../config.json';
 
 const meme: Command = {
