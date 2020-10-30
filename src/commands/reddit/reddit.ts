@@ -12,6 +12,19 @@ const reddit: Command = {
 		}
 
 		// Subreddit regex
+		/**
+		 * ^ - Match the start of the string
+		 * ( - Group start
+		 * ?: - Basically, "Match this group, but don't show in results"
+		 * r\/ - Matches "r/"
+		 * ) - Group end
+		 * ? - "Everything inside this group was optional" (Not necessary to add "r/")
+		 * ( - Another group start
+		 * [a-z0-9_] - Match any letter, number or underscore
+		 * {1,20} - Match the previous thing if repeated min. 2, max. 20
+		 * ) - Another group end
+		 * $ - Match the end of the string
+		 */
 		const regex = /^(?:r\/)?([a-z0-9_]{1,20})$/i;
 		const match = regex.exec(name);
 
