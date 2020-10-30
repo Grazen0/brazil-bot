@@ -24,6 +24,8 @@ const reddit: Command = {
 		 * {1,20} - Match the previous thing if repeated min. 2, max. 20
 		 * ) - Another group end
 		 * $ - Match the end of the string
+		 *
+		 * 'i' flag - Makes the regex case-insensitive
 		 */
 		const regex = /^(?:r\/)?([a-z0-9_]{1,20})$/i;
 		const match = regex.exec(name);
