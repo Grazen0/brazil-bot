@@ -16,7 +16,7 @@ const dadjoke: Command = {
 
 		children.sort(() => Math.random() - 0.5);
 
-		const post = children.find(({ data: { over_18 } }: any) => !over_18);
+		const post = children.find(({ data }: any) => !data.over_18);
 
 		if (!post) {
 			channel.send("Couldn't find any dad jokes");
@@ -24,7 +24,7 @@ const dadjoke: Command = {
 		}
 
 		const {
-			data: { ups, num_comments, permalink, title, selftext, author },
+			data: { ups, num_comments, permalink, title, selftext = '', author },
 		} = post;
 
 		channel.send(
