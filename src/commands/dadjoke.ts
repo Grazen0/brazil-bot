@@ -27,7 +27,7 @@ const dadjoke: Command = {
 		}
 
     const {
-      data: { url, ups, num_comments, permalink, title, selftext },
+      data: {ups, num_comments, permalink, title, selftext },
     } = post;
 
 		channel.send(
@@ -36,7 +36,6 @@ const dadjoke: Command = {
 				.setURL(`https://reddit.com${permalink}`)
 				.setColor(config.embedColor)
         .setDescription(selftext)
-				.setImage(url)
 				.setFooter(`👍 ${ups} | 💬 ${num_comments}`)
 		);
 	},
