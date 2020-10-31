@@ -52,7 +52,7 @@ const reddit: Command = {
 
 		const post = children.find(
 			({ data: { over_18, post_hint } }: any) =>
-				!over_18 && post_hint !== 'rich:video'
+				!over_18 && post_hint!=='rich:video'
 		);
 
 		if (!post) {
@@ -63,6 +63,8 @@ const reddit: Command = {
 		const {
 			data: { url, ups, num_comments, permalink, title, selftext = '', author },
 		} = post;
+
+console.log(children);
 
 		channel.send(
 			new MessageEmbed()
