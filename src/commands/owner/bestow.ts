@@ -23,7 +23,12 @@ const bestow: Command = {
 		}
 
 		if (!member) {
-			channel.send('pls mention a user');
+			channel.send('Please mention a user');
+			return;
+		}
+
+		if (member.bot) {
+			channel.send('That user is a bot');
 			return;
 		}
 
