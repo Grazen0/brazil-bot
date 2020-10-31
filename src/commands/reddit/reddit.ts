@@ -52,7 +52,7 @@ const reddit: Command = {
 
 		const post = children.find(
 			({ data: { over_18, post_hint } }: any) =>
-				!over_18 && post_hint !== 'video'
+				!over_18 && post_hint !== 'Video'
 		);
 
 		if (!post) {
