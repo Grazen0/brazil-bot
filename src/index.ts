@@ -48,7 +48,7 @@ const client = new Client();
 		host: 'sql10.freemysqlhosting.net',
 		database: 'sql10372189',
 		username: 'sql10372189',
-		password: process.env.DB_PASSWORD,
+		password: process.env.DB_PASSWORD2,
 		port: 3306,
 		dialect: 'mysql',
 		logging: false,
