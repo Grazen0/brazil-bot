@@ -58,7 +58,7 @@ const client = new Client();
 		host: 'sajidmon.heliohost.us',
 		database: 'sajidmon_BrazilBot',
 		username: 'sajidmon_BrazilBot',
-		password: process.env.DB_PASSWORD2,
+		password: process.env.DB_PASSWORD,
 		port: 3306,
 		dialect: 'mysql',
 		logging: false,
