@@ -64,8 +64,6 @@ const reddit: Command = {
 			data: { url, ups, num_comments, permalink, title, selftext = '', author },
 		} = post;
 
-console.log(children);
-
 		channel.send(
 			new MessageEmbed()
 				.setTitle(title)
