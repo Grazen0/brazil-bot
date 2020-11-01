@@ -44,10 +44,20 @@ const client = new Client();
 	});
 
 	// Database setup
-	const sequelize = new Sequelize({
+	/*const sequelize = new Sequelize({
 		host: 'sql10.freemysqlhosting.net',
 		database: 'sql10372189',
 		username: 'sql10372189',
+		password: process.env.DB_PASSWORD2,
+		port: 3306,
+		dialect: 'mysql',
+		logging: false,
+	});*/
+
+	const sequelize = new Sequelize({
+		host: 'sajidmon.heliohost.us',
+		database: 'sajidmon_BrazilBot',
+		username: 'sajidmon_BrazilBot',
 		password: process.env.DB_PASSWORD,
 		port: 3306,
 		dialect: 'mysql',

@@ -20,6 +20,7 @@ const bestow: Command = {
 			channel.send('pls mention a user or ID');
 			return;
 		}
+
 		const user = client.users.cache.get(match[0]);
 		if (!user) {
 			channel.send('User not found!');
