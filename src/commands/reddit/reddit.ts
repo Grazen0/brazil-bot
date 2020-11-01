@@ -12,7 +12,7 @@ const reddit: Command = {
 		}
 
 		// Subreddit regex
-		const regex = /^(?:r(?:\/|\\))?([a-z0-9_]{3,21})$/i;
+		const regex = /^(?:r(?:\/))?([a-z0-9_]{3,21})$/i;
 		const match = regex.exec(name);
 
 		if (!match) {
