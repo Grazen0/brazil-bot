@@ -5,7 +5,7 @@ const bestow: Command = {
 	name: 'bestow',
 	description: '',
 	aliases: ['give', 'gift'],
-	execute: async ({ author, channel, args, message, guild }) => {
+	execute: async ({ author, channel, args, client }) => {
 		if (!config.owners.includes(author.id)) {
 			channel.send("You don't have permission for this!");
 			return;
@@ -13,22 +13,26 @@ const bestow: Command = {
 
 		const [id, amount] = args;
 		const reward = parseInt(amount);
-		const member = id.match(/^[0-9]{18}$/)
-			? guild.members.cache.get(id)
-			: message.mentions.members?.first();
+
+		const regex = /^[0-9]{18}$|(?<=^<@!?)[0-9]{18}(?=>$)/;
+		const match = regex.exec(id);
+		if (!match) {
+			channel.send('pls mention a user or ID');
+			return;
+		}
+		const user = client.users.cache.get(match[0]);
+		if (!user) {
+			channel.send('User not found!');
+			return;
+		}
 
 		if (isNaN(reward)) {
 			channel.send('Please add a valid number');
 			return;
 		}
 
-		if (!member) {
-			channel.send('pls mention a user');
-			return;
-		}
-
-		await member.user.add(reward);
-		channel.send(`${member} received \`${asCurrency(reward)}\``);
+		await user.add(reward);
+		channel.send(`${user} received \`${asCurrency(reward)}\``);
 	},
 };
 
