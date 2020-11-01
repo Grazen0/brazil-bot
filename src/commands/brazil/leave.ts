@@ -1,4 +1,4 @@
-import config from '../config.json';
+import config from '../../config.json';
 
 const leave: Command = {
 	name: 'leave',
