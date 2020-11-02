@@ -38,5 +38,8 @@
 	"devDependencies": {
 		"@types/node-fetch": "^2.5.7",
 		"ts-node-dev": "^1.0.0"
-	}
+	},
+	"engines": {
+    "node": "12.x"
+  }
 }
