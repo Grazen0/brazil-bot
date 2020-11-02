@@ -7,7 +7,10 @@ const setup: Command = {
 	usage: ['setup'],
 	execute: async ({ channel, message, args }) => {
 
-const ids = (args.length && args[0] === 'oof' && args[1] === 'oof') ?  `Channel: ${args[0]} Role: ${args[1]}`: "You didn't mention anything.";
+const regexchannel = /^[0-9]{18}$|(?<=^<#)[0-9]{18}(?=>$)/;
+const regexrole = /^[0-9]{18}$|(?<=^<@&)[0-9]{18}(?=>$)/;
+
+const ids = (args.length && args[0] === regex && args[1] === regex) ?  `Channel: ${args[0]} Role: ${args[1]}`: "You didn't mention something.";
 
 		await channel.send(
 			new MessageEmbed()
