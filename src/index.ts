@@ -27,32 +27,22 @@ const client = new Client();
 		.filter(command => command?.name);
 
 	// Register event listeners
-	listAll(path.join(__dirname, 'events')).forEach(async file => {
-		const moduleName = file
-			.split(/(\\|\/)/)
-			.slice(-1)[0]
-			.replace(/\.(js|ts)$/i, '');
+	await Promise.all(
+		listAll(path.join(__dirname, 'events')).map(async file => {
+			const moduleName = file
+				.split(/\\|\//)
+				.slice(-1)[0]
+				.replace(/\.(js|ts)$/i, '');
 
-		const eventName = (moduleName.match(/-[a-z]/g) || []).reduce(
-			(acc, match) => acc.replace(match, match.charAt(1).toUpperCase()),
-			moduleName
-		);
+			const eventName = (moduleName.match(/-[a-z]/g) || []).reduce(
+				(acc, match) => acc.replace(match, match.charAt(1).toUpperCase()),
+				moduleName
+			);
 
-		const func = (await import(file)).default;
-
-		client.on(eventName, (...args) => func(client, ...args));
-	});
-
-	// Database setup
-	/*const sequelize = new Sequelize({
-		host: 'sql10.freemysqlhosting.net',
-		database: 'sql10372189',
-		username: 'sql10372189',
-		password: process.env.DB_PASSWORD2,
-		port: 3306,
-		dialect: 'mysql',
-		logging: false,
-	});*/
+			const func = (await import(file)).default;
+			client.on(eventName, (...args) => func(client, ...args));
+		})
+	);
 
 	const sequelize = new Sequelize({
 		host: 'sajidmon.heliohost.us',

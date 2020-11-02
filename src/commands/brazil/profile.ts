@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
-import config from '../config.json';
-import { asCurrency } from '../util/utils';
+import config from '../../config.json';
+import { asCurrency } from '../../util/utils';
 
 const profile: Command = {
 	name: 'profile',

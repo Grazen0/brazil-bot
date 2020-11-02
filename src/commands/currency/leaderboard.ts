@@ -2,7 +2,7 @@ import { MessageEmbed } from 'discord.js';
 import config from '../../config.json';
 import { asCurrency } from '../../util/utils';
 
-const leaderBoard: Command = {
+const leaderboard: Command = {
 	name: 'leaderboard',
 	description: 'Bot Leaderboard',
 	execute: async ({ channel, client }) => {
@@ -26,9 +26,9 @@ const leaderBoard: Command = {
 			new MessageEmbed()
 				.setTitle('Balance leaderboard')
 				.setColor(config.embedColor)
-				.setDescription(`\`\`\`${lines.join('\n')}\`\`\``)
+				.setDescription('```' + lines.join('\n') + '```')
 		);
 	},
 };
 
-export default leaderBoard;
+export default leaderboard;
