@@ -5,19 +5,8 @@ const removeRole: Command = {
 	description: 'Removes a person from the Brazil role.',
 	usage: ['[@Member]'],
 	permissions: ['MANAGE_ROLES'],
-	execute: async ({ message, channel, client, args }) => {
-		const [id] = args;
-
-		const regex = /^[0-9]{18}$|(?<=^<@!?)[0-9]{18}(?=>$)/;
-		const match = regex.exec(id);
-
-		if (!match) {
-			channel.send('You need to mention a member!');
-			return;
-		}
-
-
-		const member = client.users.cache.get(match[0]) || message.mentions.members?.first();
+	execute: async ({ message, channel, client }) => {
+		const member = message.mentions.members?.first();
 		const { brazilRole } = config;
 
 		if (!member) {
