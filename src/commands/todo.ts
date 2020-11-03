@@ -9,7 +9,7 @@ const todo: Command = {
 		channel.send(
 			new MessageEmbed()
 				.setTitle(`To do...`)
-				.setDescription(`We have to finish\nThe setup command.\nNothing else so far maybe...`)
+				.setDescription(`We have to finish:\nThe setup command.`)
 				.setColor(config.embedColor)
 		);
 	},
