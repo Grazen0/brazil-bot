@@ -8,8 +8,8 @@ const todo: Command = {
 
 		channel.send(
 			new MessageEmbed()
-				.setTitle(`To do...`)
-				.setDescription(`We have to finish:\nThe setup command.`)
+				.setTitle(`We have to finish:`)
+				.setDescription(`The setup command.`)
 				.setColor(config.embedColor)
 		);
 	},
