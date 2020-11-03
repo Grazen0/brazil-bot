@@ -17,7 +17,7 @@ const removeRole: Command = {
 		}
 
 
-		const member = client.members.cache.get(match[0]) || message.mentions.members?.first();
+		const member = client.users.cache.get(match[0]) || message.mentions.members?.first();
 		const { brazilRole } = config;
 
 		if (!member) {
