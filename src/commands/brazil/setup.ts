@@ -4,7 +4,7 @@ import config from '../../config.json';
 const setup: Command = {
 	name: 'setup',
 	description: 'Setup bot in server',
-	usage: ['setup'],
+	usage: ['channel, role'],
 	execute: async ({ channel, args, guild }) => {
 		const channelRegex = /^[0-9]{18}$|(?<=^<#)[0-9]{18}(?=>$)/;
 		const roleRegex = /^[0-9]{18}$|(?<=^<@&)[0-9]{18}(?=>$)/;
