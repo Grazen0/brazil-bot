@@ -10,7 +10,9 @@
 		"outDir": "./dist",
 		"resolveJsonModule": true,
 		"removeComments": true,
-		"noUnusedLocals": true
+		"noUnusedLocals": true,
+		"allowJs": true,
+		"noUnusedParameters": true
 	},
 	"include": ["src"]
 }
