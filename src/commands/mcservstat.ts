@@ -7,33 +7,36 @@ const mcservstat: Command = {
 	description: 'Find Minecraft Server Info',
 	cooldown: 300000,
 	execute: async ({ channel, args }) => {
+		if (!args.length) {
+			channel.send('Please mention a server');
+			return;
+		}
 
-if (!args.length) {
-  channel.send("Please mention a server");
-  return;
-}
-
-const { online, hostname, ip, motd, players, version } = await (
-			await fetch(
-				`https://api.mcsrvstat.us/2/${args[0]}`
-			)
+		const res = await (
+			await fetch(`https://api.mcsrvstat.us/2/${args[0]}`)
 		).json();
 
-const name = (hostname) ? hostname : ip;
+		if (!res.ip) {
+			channel.send('That is not a valid server!');
+			return;
+		}
 
-if (!name) {
-  channel.send("That is not a valid server");
-  return;
-}
+		const {
+			online,
+			ip,
+			hostname = ip,
+			motd = { clean: '[no motd]' },
+			players: { online: onlinePlayers, max },
+			version,
+		} = res;
 
-
-		await channel.send(
+		channel.send(
 			new MessageEmbed()
-				.setTitle(name)
+				.setTitle(hostname)
 				.setDescription(
-					`${(online) ? "This server is online" : "This server is offline"}
-            Motd = ${(motd) ? motd.clean : "No Motd"}
-            Players = ${players.online}/${players.max}
+					`${online ? 'This server is online' : 'This server is offline'}
+            Motd = ${motd.clean}
+            Players = ${onlinePlayers} / ${max}
             Version = ${version}
           `
 				)
