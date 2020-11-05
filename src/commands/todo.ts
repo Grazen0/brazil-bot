@@ -4,12 +4,11 @@ import config from '../config.json';
 const todo: Command = {
 	name: 'todo',
 	description: 'To do list for Bot Devs',
-	execute: async ({ channel, author }) => {
-
+	execute: async ({ channel }) => {
 		channel.send(
 			new MessageEmbed()
 				.setTitle(`We have to finish:`)
-				.setDescription(`The setup command\nConfigure for multiple servers`)
+				.setDescription(config.todo.map(todo => `- ${todo}`).join('\n'))
 				.setColor(config.embedColor)
 		);
 	},

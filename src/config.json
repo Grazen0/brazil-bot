@@ -27,5 +27,6 @@
 		"https://www.youtube.com/watch?v=VxrkIudteAA"
 	],
 	"gamblePrice": 75,
-	"gambleReward": 500
+	"gambleReward": 500,
+	"todo": ["The setup command", "Configure for multiple servers"]
 }
