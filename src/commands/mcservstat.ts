@@ -5,7 +5,7 @@ import config from '../config.json';
 const mcservstat: Command = {
 	name: 'mcservstat',
 	description: 'Find Minecraft Server Info',
-	cooldown: 300000,
+	cooldown: 10000,
 	execute: async ({ channel, args }) => {
 		if (!args.length) {
 			channel.send('Please mention a server');
