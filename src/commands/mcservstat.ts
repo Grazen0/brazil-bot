@@ -32,7 +32,7 @@ if (!name) {
 				.setTitle(name)
 				.setDescription(
 					`${(online) ? "This server is online" : "This server is offline"}
-            Motd = ${motd.clean}
+            Motd = ${(motd) ? motd.clean : "No Motd"}
             Players = ${players.online}/${players.max}
             Version = ${version}
           `
