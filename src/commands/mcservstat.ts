@@ -33,6 +33,7 @@ const mcservstat: Command = {
 		channel.send(
 			new MessageEmbed()
 				.setTitle(hostname)
+				.setURL(hostname)
 				.setDescription(
 					online ? 'This server is online' : 'This server is offline'
 				)
