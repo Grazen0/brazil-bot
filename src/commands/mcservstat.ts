@@ -34,11 +34,16 @@ const mcservstat: Command = {
 			new MessageEmbed()
 				.setTitle(hostname)
 				.setDescription(
-					`${online ? 'This server is online' : 'This server is offline'}
-            Motd = ${motd.clean}
-            Players = ${onlinePlayers} / ${max}
-            Version = ${version}
-          `
+					online ? 'This server is online' : 'This server is offline'
+				)
+				.addFields(
+					{ name: 'Motd', value: motd.clean, inline: false },
+					{
+						name: 'Online players',
+						value: `${onlinePlayers} / ${max}`,
+						inline: true,
+					},
+					{ name: 'Server version', value: version, inline: true }
 				)
 				.setColor(config.embedColor)
 		);
