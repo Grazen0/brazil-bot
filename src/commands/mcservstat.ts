@@ -26,7 +26,7 @@ const mcservstat: Command = {
 			ip,
 			hostname = ip,
 			motd = { clean: '[no motd]' },
-			players: { online: onlinePlayers, max },
+			players = { online: 0, max: 0 },
 			version,
 		} = res;
 
@@ -41,7 +41,7 @@ const mcservstat: Command = {
 					{ name: 'Motd', value: motd.clean, inline: false },
 					{
 						name: 'Online players',
-						value: `${onlinePlayers} / ${max}`,
+						value: `${players.online} / ${players.max}`,
 						inline: true,
 					},
 					{ name: 'Server version', value: version, inline: true }
