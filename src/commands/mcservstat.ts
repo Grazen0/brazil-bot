@@ -38,7 +38,7 @@ const mcservstat: Command = {
 					online ? 'This server is online' : 'This server is offline'
 				)
 				.addFields(
-					{ name: 'Motd', value: motd.clean, inline: false },
+					{ name: 'Motd', value: (online) ? motd.clean : "This server is offline", inline: false },
 					{
 						name: 'Online players',
 						value: `${onlinePlayers} / ${max}`,
