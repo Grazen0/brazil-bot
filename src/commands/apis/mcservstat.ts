@@ -1,12 +1,12 @@
 import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
-import config from '../config.json';
+import config from '../../config.json';
 
 const mcservstat: Command = {
 	name: 'mcservstat',
 	description: 'Find Minecraft Server Info',
 	cooldown: 10000,
-	execute: async ({ channel, args }) => {
+	async execute({ channel, args }) {
 		if (!args.length) {
 			channel.send('Please mention a server');
 			return;
@@ -22,12 +22,12 @@ const mcservstat: Command = {
 		}
 
 		const {
-			online,
-			ip,
+			online = false,
+			ip = '[no ip provided]',
 			hostname = ip,
 			motd = { clean: '[no motd]' },
-			players: { online: onlinePlayers, max },
-			version,
+			players = { online: 0, max: 0 },
+			version = '[no version specified]',
 		} = res;
 
 		channel.send(
@@ -41,7 +41,7 @@ const mcservstat: Command = {
 					{ name: 'Motd', value: (online) ? motd.clean : "This server is offline", inline: false },
 					{
 						name: 'Online players',
-						value: `${onlinePlayers} / ${max}`,
+						value: `${players.online} / ${players.max}`,
 						inline: true,
 					},
 					{ name: 'Server version', value: version, inline: true }

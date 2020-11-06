@@ -4,7 +4,7 @@ import config from '../config.json';
 const cool: Command = {
 	name: 'cool',
 	description: 'Find your cool%',
-	execute: async ({ channel, author }) => {
+	async execute({ channel, author }) {
 		const cool = Math.floor(Math.random() * 101);
 
 		channel.send(
