@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const dog: Command = {
 	name: 'dog',
 	description: 'Shows a random image of a dog!',
-	execute: async ({ channel }) => {
+	async execute({ channel }) {
 		const [dog] = await (
 			await fetch('https://api.thedogapi.com/v1/images/search')
 		).json();

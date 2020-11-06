@@ -15,7 +15,7 @@ interface Command {
 	cooldown?: number;
 	usage?: string[];
 	permissions?: import('discord.js').PermissionResolvable[];
-	execute: (e: CommandEvent) => Promise<void>;
+	execute(e: CommandEvent): Promise<void>;
 }
 
 interface Models {

@@ -6,7 +6,7 @@ const mcservstat: Command = {
 	name: 'mcservstat',
 	description: 'Find Minecraft Server Info',
 	cooldown: 10000,
-	execute: async ({ channel, args }) => {
+	async execute({ channel, args }) {
 		if (!args.length) {
 			channel.send('Please mention a server');
 			return;
@@ -22,12 +22,12 @@ const mcservstat: Command = {
 		}
 
 		const {
-			online,
-			ip,
+			online = false,
+			ip = '[no ip provided]',
 			hostname = ip,
 			motd = { clean: '[no motd]' },
 			players = { online: 0, max: 0 },
-			version,
+			version = '[no version specified]',
 		} = res;
 
 		channel.send(

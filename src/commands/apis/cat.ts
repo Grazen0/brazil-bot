@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const cat: Command = {
 	name: 'cat',
 	description: 'Gets a random cat!',
-	execute: async ({ channel }) => {
+	async execute({ channel }) {
 		const res = await (
 			await fetch('https://api.thecatapi.com/v1/images/search')
 		).json();
