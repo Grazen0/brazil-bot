@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js';
 import fetch from 'node-fetch';
-import config from '../config.json';
+import config from '../../config.json';
 
 const mcservstat: Command = {
 	name: 'mcservstat',
