@@ -5,8 +5,17 @@ const cursed: Command = {
   name: 'cursed',
   description: 'Find a cursed image',
   async execute({channel}) {
-    channel.send('not done yet');
-    channel.send('https://cursed-images-api.herokuapp.com');
+    const res = await (
+      await fetch(`https://cursed-images-api.herokuapp.com/api/search`)
+    ).json();
+
+    const {
+      url
+    } = res;
+
+    const attachment = new MessageAttachment(url, 'image.png');
+		channel.send(attachment).catch(console.error);
+
   },
 };
 
