@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import config from '../../config.json';
+import { MessageAttachment } from 'discord.js';
 
 const cursed: Command = {
   name: 'cursed',
