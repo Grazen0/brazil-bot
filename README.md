@@ -1,6 +1,4 @@
 # pls don't send me to brazil
-
-This a pretty cool badge
 <br />
 ![build][build]
 
