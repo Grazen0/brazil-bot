@@ -24,6 +24,7 @@
 	"homepage": "https://github.com/ElCholoGamer/BrazilBot#readme",
 	"dependencies": {
 		"@discordjs/opus": "^0.3.2",
+		"@typescript-eslint/parser": "^4.10.0",
 		"@typescript-eslint/eslint-plugin": "^4.10.0",
 		"@typescript-eslint/parser": "^4.9.1",
 		"chalk": "^4.1.0",
