@@ -31,7 +31,7 @@
 		"mysql2": "^2.2.5",
 		"node-fetch": "^2.6.1",
 		"sequelize": "^6.3.5",
-		"ytdl-core-discord": "^1.2.3"
+		"ytdl-core-discord": "^1.2.5"
 	},
 	"devDependencies": {
 		"@types/node-fetch": "^2.5.7",
