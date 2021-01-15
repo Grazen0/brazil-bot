@@ -13,7 +13,7 @@ const eval: Command = {
     }
     
     try {
-      const result = eval(args.join(' ');
+      const result = eval(args.join(' '));
       channel.send(`Result: ${result}`);
     } catch (err) {
       console.error(err);
