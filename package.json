@@ -34,7 +34,7 @@
 		"ytdl-core-discord": "^1.2.5"
 	},
 	"devDependencies": {
-		"@types/node-fetch": "^2.5.7",
+		"@types/node-fetch": "^2.5.8",
 		"ts-node-dev": "^1.1.1",
 		"typescript": "^4.1.3"
 	}
