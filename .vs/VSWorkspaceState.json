@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\commands",
+    "\\src\\commands\\brazil",
+    "\\src\\commands\\currency"
+  ],
+  "SelectedNode": "\\src\\commands\\currency\\daily.ts",
+  "PreviewInSolutionExplorer": false
+}
