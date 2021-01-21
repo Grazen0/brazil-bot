@@ -19,7 +19,7 @@ const eval: Command = {
       console.error(err);
       channel.send('An error occurred lol')
     }
-  }
+  },
 };
 
 export default eval;
