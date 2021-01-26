@@ -1,6 +1,6 @@
 import config from '../../config.json';
 
-const eval: Command = {
+const evalCmd: Command = {
   name: 'eval',
   description: 'Evaluates a JavaScript expression.',
   async execute(e) {
@@ -14,12 +14,12 @@ const eval: Command = {
     
     try {
       const result = eval(args.join(' '));
-      channel.send(`Result: ${result}`);
+      await channel.send(`Result: ${result}`);
     } catch (err) {
       console.error(err);
-      channel.send('An error occurred lol')
+      channel.send('An error occurred lol');
     }
   },
 };
 
-export default eval;
+export default evalCmd;
