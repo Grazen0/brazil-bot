@@ -30,7 +30,7 @@
 		"eslint": "^7.21.0",
 		"mysql2": "^2.2.5",
 		"node-fetch": "^2.6.1",
-		"sequelize": "^6.5.0",
+		"sequelize": "^6.5.1",
 		"ytdl-core-discord": "^1.2.5"
 	},
 	"devDependencies": {
