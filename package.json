@@ -26,7 +26,7 @@
 		"@typescript-eslint/eslint-plugin": "^4.24.0",
 		"chalk": "^4.1.1",
 		"discord.js": "^12.5.3",
-		"dotenv": "^9.0.2",
+		"dotenv": "^10.0.0",
 		"eslint": "^7.27.0",
 		"mysql2": "^2.2.5",
 		"node-fetch": "^2.6.1",
