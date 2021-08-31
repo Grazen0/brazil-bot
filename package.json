@@ -23,7 +23,7 @@
 	"dependencies": {
 		"@typescript-eslint/parser": "^4.28.3",
 		"@discordjs/opus": "^0.5.3",
-		"@typescript-eslint/eslint-plugin": "^4.28.3",
+		"@typescript-eslint/eslint-plugin": "^4.30.0",
 		"chalk": "^4.1.1",
 		"discord.js": "^12.5.3",
 		"dotenv": "^10.0.0",
