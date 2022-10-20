@@ -22,7 +22,7 @@
 	"homepage": "https://github.com/ElCholoGamer/brazil-bot#readme",
 	"dependencies": {
 		"@typescript-eslint/parser": "^4.28.3",
-		"@discordjs/opus": "^0.5.3",
+		"@discordjs/opus": "^0.9.0",
 		"@typescript-eslint/eslint-plugin": "^4.28.3",
 		"chalk": "^4.1.1",
 		"discord.js": "^12.5.3",
